@@ -42,6 +42,10 @@ PRIMITIVE_HREF = {
     "datetime": "http://schema.omg.org/spec/UML/2.1/uml.xml#DateTime",
 }
 
+# Ensure consistent namespace prefixes in serialized XML output
+ET.register_namespace("xmi", XMI_NS)
+ET.register_namespace("uml", UML_NS)
+
 
 @dataclass
 class Slot:
@@ -213,8 +217,6 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
 
     root = ET.Element(f"{{{XMI_NS}}}XMI", {
         f"{{{XMI_NS}}}version": "2.1",
-        "xmlns:xmi": XMI_NS,
-        "xmlns:uml": UML_NS,
     })
 
     model = ET.SubElement(root, f"{{{UML_NS}}}Model", {
