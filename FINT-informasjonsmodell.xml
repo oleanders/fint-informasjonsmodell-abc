@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <xmi:XMI xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1">
-  <uml:Model xmi:id="EAID_MODEL_47b1613b68c55e1930" name="FINT">
+  <uml:Model xmi:type="uml:Model" xmi:id="EAID_MODEL_47b1613b68c55e1930" name="FINT">
     <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_9a2a1a564a72df16e2" name="administrasjon">
       <properties stereotype="ApplicationSchema" />
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_27ee59b1262976fcde" name="fullmakt">
