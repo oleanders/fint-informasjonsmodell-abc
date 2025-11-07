@@ -31,6 +31,7 @@ classes:
       | Årstrinn | X | |
       | Eksamensgruppe | | X |
       | Undervisningsgruppe | | X |
+    abstract: true
     attributes:
       beskrivelse:
         range: string
@@ -83,6 +84,7 @@ classes:
       # Beskrivelse
       
       Knytter sammen et elevforhold og en gruppe (basisgruppe, kontaktlærergruppe, undervisningsgruppe, eksamensgruppe eller programområde). Gjør det mulig å uttrykke gyldighetsperiode for et medlemskap.
+    abstract: true
     attributes:
       gyldighetsperiode:
         range: Periode
@@ -115,6 +117,7 @@ classes:
       * Lærer
       * Elev
       * Sensor
+    abstract: true
     attributes:
       beskrivelse:
         range: string

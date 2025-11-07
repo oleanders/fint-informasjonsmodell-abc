@@ -395,6 +395,8 @@ def emit_yaml_for_package(pkg_path, classes_for_pkg, class_index, outdir, overwr
             cdesc = get_class_doc(cls_el, class_docs)
             if cdesc:
                 append_description(lines, 4, cdesc)
+        if (cls_el.get('isAbstract') or '').lower() == 'true':
+            lines.append('    abstract: true')
         isa = parse_is_a(cls_el, class_index)
         if isa:
             lines.append(f'    is_a: {isa}')

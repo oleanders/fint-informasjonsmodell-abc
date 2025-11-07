@@ -185,6 +185,7 @@ classes:
       # Beskrivelse
       
       Fellesbenevnelse for dimensjoner i en kontoplan.
+    abstract: true
     is_a: Begrep
     attributes:
       fullmakt:

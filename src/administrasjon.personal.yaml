@@ -562,6 +562,7 @@ classes:
       Lønn blir kontert, attestert og anvist av personalressurser som har fullmakter til dette.
       
       Lønn utbetales til et arbeidsforhold, for en gitt periode.
+    abstract: true
     attributes:
       anvist:
         range: string

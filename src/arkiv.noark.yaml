@@ -1255,6 +1255,7 @@ classes:
       # Referanser
       
       * https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden
+    abstract: true
     attributes:
       avsluttetDato:
         range: string
@@ -1635,6 +1636,7 @@ classes:
       # Referanser
       
       * https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden
+    abstract: true
     attributes:
       arkivertDato:
         range: string
@@ -1928,6 +1930,7 @@ classes:
       # Referanser
       
       * https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden
+    abstract: true
     is_a: Mappe
     attributes:
       arkivnotat:

@@ -14,6 +14,7 @@ classes:
       # Beskrivelse
       
       Abstrakt klasse som inneholder relasjon til kontaktinformasjon og identifikator. Må enten brukes som Person, Enhet, eller annen underliggende klasse, som feks organisasjonselement.
+    abstract: true
     attributes:
       kontaktinformasjon:
         range: Kontaktinformasjon
@@ -44,6 +45,7 @@ classes:
       * Det er ingen sykluser definert med forelder forholdet
       
       # Eksempel
+    abstract: true
     attributes:
       gyldighetsperiode:
         range: Periode
@@ -82,6 +84,7 @@ classes:
       # Beskrivelse
       
       Løs relasjon til BRREG.
+    abstract: true
     is_a: Aktør
     attributes:
       forretningsadresse:
