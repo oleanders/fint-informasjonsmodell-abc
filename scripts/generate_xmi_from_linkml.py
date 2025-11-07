@@ -64,6 +64,13 @@ class SchemaClass:
     abstract: bool
     is_a: Optional[str]
     attributes: List[Slot] = field(default_factory=list)
+    stereotypes: List[str] = field(default_factory=list)
+
+
+def sanitize_attribute_text(text: Optional[str]) -> Optional[str]:
+    if text is None:
+        return None
+    return text.replace('\r\n', '\n').replace('\r', '\n')
 
 
 def find_yaml_files(src_dir: Path) -> Iterable[Path]:
@@ -106,6 +113,14 @@ def collect_classes(src_dir: Path) -> Tuple[List[SchemaClass], Dict[str, List[Sc
                     description=slot_info.get("description"),
                 )
                 attributes.append(slot)
+            stereos = class_info.get("stereotypes") or class_info.get("stereotype")
+            if stereos is None:
+                stereotype_list = ["hovedklasse"]
+            elif isinstance(stereos, (list, tuple)):
+                stereotype_list = [str(s) for s in stereos if s]
+            else:
+                stereotype_list = [str(stereos)]
+
             schema_class = SchemaClass(
                 name=class_name,
                 package_path=package_path,
@@ -113,6 +128,7 @@ def collect_classes(src_dir: Path) -> Tuple[List[SchemaClass], Dict[str, List[Sc
                 abstract=bool(class_info.get("abstract")),
                 is_a=class_info.get("is_a"),
                 attributes=attributes,
+                stereotypes=stereotype_list or ["hovedklasse"],
             )
             classes.append(schema_class)
             name_index[class_name].append(schema_class)
@@ -245,6 +261,16 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
             })
             if schema_class.abstract:
                 class_el.set("isAbstract", "true")
+
+            props_attrs = {}
+            doc_text = sanitize_attribute_text(schema_class.description)
+            if doc_text:
+                props_attrs["documentation"] = doc_text
+            if schema_class.stereotypes:
+                props_attrs["stereotype"] = schema_class.stereotypes[0]
+            if props_attrs:
+                ET.SubElement(class_el, "properties", props_attrs)
+
             if schema_class.description:
                 add_comment(class_el, schema_class.description, make_id("CMT", "/".join(class_key)))
 
