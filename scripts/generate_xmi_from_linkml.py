@@ -250,6 +250,7 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
             f"{{{XMI_NS}}}id": package_id_map[pkg_path],
             "name": pkg_path[-1],
         })
+        ET.SubElement(pkg_element, "properties", {"stereotype": "ApplicationSchema"})
         package_elements[pkg_path] = pkg_element
 
         for schema_class in packages[pkg_path]["classes"]:

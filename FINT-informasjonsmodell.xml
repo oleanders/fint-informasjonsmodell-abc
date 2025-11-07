@@ -2,7 +2,9 @@
 <xmi:XMI xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1">
   <uml:Model xmi:id="EAID_MODEL_47b1613b68c55e1930" name="FINT">
     <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_9a2a1a564a72df16e2" name="administrasjon">
+      <properties stereotype="ApplicationSchema" />
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_27ee59b1262976fcde" name="fullmakt">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_e258ae55bc2629bbc7" name="Fullmakt">
           <properties documentation="Fullmakt til å gjøre handlinger i forhold til en gitt Rolle.&#10;&#10;# Beskrivelse&#10;&#10;Fullmakter innehas av fysiske eller juridiske personer, og er knyttet til kontodimensjon eller organisasjonselement. Fullmakter er delegert til personer, disse benevnes som fullmektige.&#10;&#10;Fullmektige kan ha stedfortreder. Stedfortrederen kan utøve den samme fullmakten som den fullmektige.&#10;&#10;Fullmakter beskrives i delegasjonsreglementet for organisasjonen. For fylkeskommuner er dette et reglement besluttet av Fylkestinget og videre delegert av Fylkesrådmannen.&#10;&#10;Dersom fullmakt har relasjon til mer enn en kontodimensjon (og organisasjonselement) er det å regne som en kombinasjonsfullmakt. &#10;&#10;# Eksempler&#10;&#10;Rektor ved Eidsvoll VGS har anvisningsfullmakt for ansvar 241.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_b3722e3f62bd07fcf5">
@@ -244,6 +246,7 @@ De vanligste rollene er:
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_16aa82aad3a9ee0e48" name="kodeverk">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_73c5da61eb77560465" name="Aktivitet">
           <properties documentation="Aktivitet er en del av kontostrengen og er en detaljering av funksjon.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_5f5b72ac267cfd647a">
@@ -762,6 +765,7 @@ Kode   |     Beskrivelse
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_f46606b96de86119e1" name="komplekse-datatyper">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_287dee2f3baeed4326" name="Kontostreng">
           <properties documentation="Sammensetning av kontodimensjoner for bokføring&#10;&#10;# Beskrivelse&#10;&#10;Henvisninger til koder i alle kontodimensjoner for kontering av en kostnad eller inntekt.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_36e9ce9d307953e1f4">
@@ -892,6 +896,7 @@ Henvisninger til koder i alle kontodimensjoner for kontering av en kostnad eller
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_c5515e4f4931267c64" name="organisasjon">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_a165c8aff81b7b33a1" name="Arbeidslokasjon">
           <properties documentation="Fysisk lokasjon hvor en ansatt har sitt arbeidssted.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_acf9cf66f3e95455ba">
@@ -1131,6 +1136,7 @@ Referanse til seg selv.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_08a18d4616b81c4d7d" name="personal">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_022b6775ef7e48361d" name="Arbeidsforhold">
           <properties documentation="Arbeidsforhold er et avtaleforhold mellom personalressurs og arbeidsgiver&#10;&#10;# Beskrivelse&#10;&#10;Arbeidsforhold defineres som et avtaleforhold hvor den ene part (arbeidstakeren / personalressurs) forplikter seg til å utføre arbeid for den annen part (arbeidsgiveren / organisasjonselement). Arbeidsforholdet kan også utføres av en person fra vikarbyrå, eller et firma gjennom en kontrakt/avtale.&#10;&#10;# Eksempler&#10;&#10;* Ansatt som rådgiver i fast stilling&#10;* Vikariat for en annen person som er i permisjon fra sitt arbeidsforhold&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_2733585f8600e1d90d">
@@ -2435,7 +2441,9 @@ Enhet er spesifisert av lønnsart.
         </packagedElement>
       </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_9df7892e217c55e819" name="arkiv">
+      <properties stereotype="ApplicationSchema" />
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_c264abc1482668dfa6" name="kodeverk">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_0234a9fee5ba4c3099" name="DokumentStatus">
           <properties documentation="Kodeverk for status til et dokument.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M054&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_ffa3582a88ba93323a">
@@ -2724,6 +2732,7 @@ Dette er ikke en del av Noark standarden.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_e03199d7374ad112af" name="kulturminnevern">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_c5b5e828adde73e671" name="DispensasjonAutomatiskFredaKulturminne">
           <properties documentation="Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_af8301a0a07aa81245">
@@ -2864,6 +2873,7 @@ Eksempler kan være ‘Utskifting av vannledning’, ‘Etablering av landbruksv
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_c36acd0ce3ada4ece3" name="noark">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_2e395b2932a387ea4c" name="AdministrativEnhet">
           <properties documentation="Navn på avdeling, kontor eller annen administrativ enhet som har ansvaret for saksbehandlingen.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 4.2&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M086&#10;&#10;# Referanser&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_fe76cb85c0038baf31">
@@ -5763,6 +5773,7 @@ Timedelen er egentlig unødvendig der bare dato har verdi. Det anbefales at en d
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_0521fc874505f199ce" name="personal">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_7972da846844535d87" name="Personalmappe">
           <properties documentation="Saksmappe med opplysninger om den enkelte arbeidstakers arbeidsforhold.&#10;&#10;# Beskrivelse&#10;&#10;Opplysninger i en personalmappe kan være personalia, arbeidskontrakt og annen korrespondanse som berører arbeidsforholdet.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_37ff09ff8a55751dff">
@@ -5822,6 +5833,7 @@ Opplysninger i en personalmappe kan være personalia, arbeidskontrakt og annen k
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_f31a7c31191b19443e" name="samferdsel">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_af70e5f22fc0925d52" name="SøknadDrosjeløyve">
           <properties documentation="Sak om søknad om løyve (tillatelse til å) kjøre drosje.&#10;&#10;# Beskrivelse&#10;&#10; Et drosjeløyve er en tillatelse til å transportere mennesker i personbil mot betaling.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_c87c8287d28220c771">
@@ -5855,6 +5867,7 @@ Opplysninger i en personalmappe kan være personalia, arbeidskontrakt og annen k
         </packagedElement>
       </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_384581495d1610d8fe" name="felles">
+      <properties stereotype="ApplicationSchema" />
       <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_fa075ce0d6dd51fae1" name="Kontaktperson">
         <properties documentation="Kontaktperson til en person.&#10;&#10;# Beskrivelse&#10;&#10;Kontaktperson er personer som kan kontaktes dersom det er behov for det.&#10;&#10;Kontaktperson kalles også pårørende.&#10;" stereotype="hovedklasse" />
         <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_e7d856c564c8424115">
@@ -6196,6 +6209,7 @@ Dette kan være personens foreldre eller adoptivforeldre.
           </ownedAttribute>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_3fb584cbee374632dc" name="basisklasser">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_0f753942ddbb43f8ce" name="Aktør" isAbstract="true">
           <properties documentation="Person eller enhet vi samhandler med.&#10;&#10;# Beskrivelse&#10;&#10;Abstrakt klasse som inneholder relasjon til kontaktinformasjon og identifikator. Må enten brukes som Person, Enhet, eller annen underliggende klasse, som feks organisasjonselement.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_becfc46bbb0689a1de">
@@ -6371,6 +6385,7 @@ Organisasjonsnummeret består av 9 siffer hvor det siste sifferet er et kontroll
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_649a83ff6592c8912f" name="kodeverk">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_56658948766c1905c6" name="Fylke">
           <properties documentation="Liste over Norges fylker&#10;&#10;# Referanser&#10;&#10;* &quot;SSB: Standard for fylkesinndeling&quot;:http://www.ssb.no/klass/#!/klassifikasjoner/104&#10;* &quot;data.norge.no&quot;:&#10;http://data.norge.no/data/statistisk-sentralbyr%C3%A5/fylkesinndeling&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_fcbf717d71990cbe30">
@@ -6454,6 +6469,7 @@ I henhold til [ISO 4217](https://no.wikipedia.org/wiki/ISO_4217)
             </ownedAttribute>
           </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_28c293863ae71c6786" name="iso">
+          <properties stereotype="ApplicationSchema" />
           <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_90681d3984c7625b73" name="Kjønn">
             <properties documentation="Liste over verdier for kjønn basert på ISO/IEC 5218.&#10;&#10;# Beskrivelse&#10;&#10;Liste over verdier for kjønn basert på ISO/IEC 5218.&#10;&#10;Når vi i daglig tale prater om kjønn presiserer vi sjelden hva vi mener. Avhengig av sammenheng kan vi mene enten biologisk, sosialt, mentalt eller juridisk kjønn. Kjønn kan med andre ord betraktes som et samlebegrep.&#10;Kilde: llh.no  &#10;&#10;# Referanser&#10;&#10;* [FINT API for ISO/IEC 5218](https://api.felleskomponent.no/felles/kodeverk/kjonn)&#10;* [ISO/IEC 5218:2004](https://iso.org/standard/36266.html)&#10;* [Wikipedia artikkel](https://en.wikipedia.org/wiki/ISO/IEC_5218)&#10;&#10;# Eksempler&#10;&#10;    0 = uvisst (not known)&#10;    1 = mann (male)&#10;    2 = kvinne (female)&#10;    9 = gjelder ikke (not applicable)&#10;" stereotype="hovedklasse" />
             <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_233cfcd3ccfd10b07b">
@@ -6526,6 +6542,7 @@ NO, NB, NN, DA, etc.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_eb61203622ad544bf4" name="komplekse-datatyper">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_78ce319f88daccd11d" name="Adresse">
           <properties documentation="Fysisk adresse eller postadresse.&#10;&#10;# Beskrivelse&#10;&#10;Dette kan enten være en postadresse eller en fysisk adresse som det er mulig å besøke.&#10;&#10;# Eksempel&#10;&#10;|               adresse               |    poststed    | postnummer | land |&#10;|-------------------------------------|----------------|------------|------|&#10;| Nydalen allé 11                     | Oslo           |       0484 | NO   |&#10;| Fakturamottak&amp;lt;br&amp;gt;Postboks 501 Lund  | Kristiansand   |       4605 | -    |&#10;| Postboks 517 Lundsiden              | KRISTIANSAND S |       4605 | -    |&#10;&#10;&#10;# Referanser&#10;&#10;- http://www.bring.no/radgivning/sende-noe/klargjoring/klargjoring-adressert/adressering-til-postmottakere-i-norge&#10;- http://www.bring.no/radgivning/sende-noe/klargjoring/klargjoring-adressert/adressering-til-mottakere-i-utlandet&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_66bf2b5e346ae2657d">
@@ -7099,7 +7116,9 @@ Ren tekst
         </packagedElement>
       </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_20e0ae6c58d11b47f3" name="okonomi">
+      <properties stereotype="ApplicationSchema" />
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_2d6570a5e46e4a94b7" name="faktura">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_3db56ae321a82f08e3" name="Faktura">
           <properties documentation="Betalingskrav som er utformet og oversendt fra fakturautsteder til fakturamottaker. &#10;&#10;# Beskrivelse&#10;&#10;Faktura opprettes med basis i ett fakturagrunnlag og ustedes til en eller flere mottakere.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_49ae4c5d5a0bf2c653">
@@ -7485,6 +7504,7 @@ Enhet som etter Regnskapsloven er pliktig å arkivere dokumentasjon for faktura.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_0a4a7adc5833276094" name="kodeverk">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_320372d9967f8e69e0" name="Merverdiavgift">
           <properties documentation="Kodeverk for merverdiavgifter.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_891beb4aefa4357c51">
@@ -7582,6 +7602,7 @@ Konteringen som varen har i økonomisystemet kan også angis.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_cb486c5e10e7549329" name="regnskap">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_cdb4a5f491db419a71" name="Bilag">
           <properties documentation="Dokumentasjon til en transaksjon.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_e6760c7ad97af5f310">
@@ -7933,7 +7954,9 @@ ISO 8601 format `YYYY-MM-DDThh:mm:ssZ`
         </packagedElement>
       </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_9de47cd65b339bbb2b" name="personvern">
+      <properties stereotype="ApplicationSchema" />
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_fc190482d237184ba6" name="kodeverk">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_0969c491bcc5621d74" name="Behandlingsgrunnlag">
           <properties documentation="Rettslig grunnlag for behandling av personopplysninger.&#10;&#10;# Beskrivelse&#10;&#10;All behandling av personopplysninger må ha et rettslig grunnlag for å være lov. Det må finnes et behandlingsgrunnlag for behandling av hver enkelt personopplysning til hvert enkelt formål.&#10;&#10;Virksomheten har også plikt til å informere den enkelte om hvilket grunnlag  personopplysningene deres behandles på. &#10;&#10;# Eksempler&#10;&#10;* Samtykke&#10;* Nødvendig for å oppfylle en avtale&#10;* Nødvendig for å oppfylle en rettslig plikt&#10;* Nødvendig for å beskytte vitale interesser&#10;* Nødvendig for å utføre en oppgave i offentlig interesse eller utøve offentlig myndighet&#10;* Nødvendig for å ivareta legitime interesser - interesseavveiing&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_83ff6bedd5fab6f1d2">
@@ -7975,6 +7998,7 @@ Personvernforordningen artikkel 4
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_dcd6eedb91c6d3bf9a" name="samtykke">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_66c2b6e15607ff4089" name="Behandling">
           <properties documentation="All bruk av personopplysninger&#10;&#10;# Beskrivelse&#10;&#10;All bruk av personopplysninger, slik som innsamling, registrering, sammenstilling, lagring og utlevering, eller en kombinasjon av slike bruksmåter.&#10;&#10;Personopplysninger skal bare brukes for spesifikke, uttrykkelige, angitte og legitime formål. Virksomheten har plikt til å gi den enkelte informasjon om formålet med behandling av personopplysning samt behandlingsgrunnlaget.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_9dfc8b24f081525f28">
@@ -8221,7 +8245,9 @@ ISO 8601 format `YYYY-MM-DDThh:mm:ssZ`
         </packagedElement>
       </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_ac0f25b71d241db132" name="ressurs">
+      <properties stereotype="ApplicationSchema" />
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_2971350fdff5fb67e3" name="datautstyr">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_67cb98c80c9c34af6e" name="DigitalEnhet">
           <properties documentation="Beskriver ulike digitale enheter slik som feks pc, nettbrett, mobil.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_8cba18a3172b594847">
@@ -8475,6 +8501,7 @@ Gruppemedlemskap som knytter sammen Digitalenhet og Enhetsgrupper.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_05dc95df6df0dc918a" name="eiendel">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_7cd0845ee874ae32ed" name="Applikasjon">
           <properties documentation="En applikasjon med tilhørende ressurser. &#10;&#10;En ressurs kan være en lisens eller en rolle som tilganger inne i en applikasjon. Applikasjonen kan være en desktopapplikasjon eller en skybasert tjeneste. Brukere kan da få tilgang til denne applikasjonen hvis vedkommende har fått tildelt en ressurs knyttet til applikasjonen.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_e3176db7638d5720ea">
@@ -8732,6 +8759,7 @@ Brukes kun når ressursene er lisenser.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_68cbfe077cd61e1896" name="kodeverk">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_4fb088e36880452bac" name="Applikasjonskategori">
           <properties documentation="Kategorier av applikasjoner.&#10;&#10;Eksempel:&#10;&#10;* Pedagogisk programvare&#10;* Kontorstøtte&#10;* Fagsystemer&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_28d45effd37bd6848b">
@@ -8851,6 +8879,7 @@ Eksempler:
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_ed81a66e7ce9ac8e80" name="tilgang">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_d95be5e3909da6c25d" name="Identitet">
           <properties documentation="Identitet identifiserer innehaver av rettigheter i relasjonen til organisasjonen.&#10;&#10;Kilden for denne type informasjon vil typisk være identitetsforvaltningssystemet.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_045cf69989a563759f">
@@ -8916,7 +8945,9 @@ Kilden for denne type informasjon vil typisk være identitetsforvaltningssysteme
         </packagedElement>
       </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_c931f36cdf31985f70" name="utdanning">
+      <properties stereotype="ApplicationSchema" />
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_a0fb5253503092535a" name="basisklasser">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_4fc3b1712583fb4e21" name="Gruppe" isAbstract="true">
           <properties documentation="En generisk samling av elever og lærere&#10;&#10;# Beskrivelse &#10;&#10;Gruppe representeres som en spesialisering (se tabell nedenfor).&#10;&#10;Grupper knyttes til Utdanningsforhold via Gruppemedlemskap eller direkte relasjoner.&#10;&#10;En gruppe kan ha referanser til kodeverk fra Grep og VIGO. En gruppe kan ha perioder som angir når den er gyldig eller aktiv. Hvorvidt en gruppe har referanser og perioder avhenger av hvilken konkret klasse som benyttes.&#10;&#10;| Klasse | Kode | Periode |&#10;| ------- | ----- | ------ |&#10;| Basisgruppe | | X |&#10;| Kontaktlærergruppe | | X |&#10;| Utdanningsprogram | X | |&#10;| Programområde | X | |&#10;| Fag | X | |&#10;| Årstrinn | X | |&#10;| Eksamensgruppe | | X |&#10;| Undervisningsgruppe | | X |&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_c209ace5be49b93109">
@@ -9103,6 +9134,7 @@ Dette kan være identifikator som eksisterer i skoleadministrativt system.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_0fb75ae5dac6e5cbd2" name="elev">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_1ef82fb6b8a0e6ad4b" name="Basisgruppe">
           <properties documentation="Elevgruppe som definert i Opplæringslova §8-2. &#10;&#10;# Beskrivelse&#10;&#10;I opplæringa skal elevane delast i klassar eller basisgrupper som skal vareta deira behov for sosialt tilhør. For delar av opplæringa kan elevane delast i andre grupper etter behov. Til vanleg skal organiseringa ikkje skje etter fagleg nivå, kjønn eller etnisk tilhør. Klassane, basisgruppene og gruppene må ikkje vere større enn det som er pedagogisk og tryggleiksmessig forsvarleg.&#10;&#10;Klassen eller basisgruppa skal ha ein eller fleire lærarar (kontaktlærarar) som har særleg ansvar for dei praktiske, administrative og sosialpedagogiske gjeremåla som gjeld klassen eller basisgruppa og dei elevane som er der, mellom anna kontakten med heimen.&#10;&#10;Begrepet som har tildligere vært kjent som &quot;klasse&quot;.&#10;&#10;&quot;Vanlig&quot; gruppe i SATS (klassegruppe)&#10;&#10;Viser informasjon om:&#10;* År på VGS person går i&#10;* Programområdet&#10;* A, B eller C klasse&#10;&#10;Synonym:&#10;* Klasse&#10;&#10;Øvre grense er beskrevet i Opplæringslova §8-3 eller i forskrift.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_1b050af63ace6cae24">
@@ -10342,6 +10374,7 @@ I informasjonsmodellen oppgis en prosentverdi som et heltall. Dette tallet er an
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_0cd0eb61637cfb80f5" name="kodeverk">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_b9c1aa963761937993" name="Avbruddsårsak">
           <properties documentation="Årsaken til at eleven avbryter utdanningsprogrammet (Vg1)/programområdet (Vg2/Vg3) ) i løpet av skoleåret  eller lærlingen/lærekandidaten hever lærekontrakten/opplæringskontrakten.&#10;&#10;# Referanse&#10;&#10;Registreringshåndbok: https://regbok.udir.no/35004/3344/35042-1014313.html&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_90dafb8f97312fe058">
@@ -10737,6 +10770,7 @@ Det kan bare føres vitnemålsmerknader som er gitt av Utdanningsdirektoratet.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_037f6da0bad36e43e2" name="larling">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_682b6c29fdf605980f" name="AvlagtPrøve">
           <properties documentation="Informasjon om en avlagt prøve for en person i et fag.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_cbceb4452a2ebec68a">
@@ -10879,6 +10913,7 @@ Det kan bare føres vitnemålsmerknader som er gitt av Utdanningsdirektoratet.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_b7987f530c4141bb40" name="ot">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_66f46322ebc5f4862b" name="OtUngdom">
           <properties documentation="Oppfølgingstjenesten (OT) har ansvar for å følge opp ungdom med rett til videregående opplæring som ikke er i opplæring eller arbeid.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_95f0b0805f05c82247">
@@ -10933,6 +10968,7 @@ Det kan bare føres vitnemålsmerknader som er gitt av Utdanningsdirektoratet.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_a43d6b4e73f0e29caa" name="timeplan">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_9117fe80356ce4903b" name="Eksamen">
           <properties documentation="En eksamen som avholdes på en skole.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_be189d480027b886ba">
@@ -11427,6 +11463,7 @@ Gruppemedlemskap som knytter sammen elevforhold og undervisningsgrupper.
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_f71781f46bd749af00" name="utdanningsprogram">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_ab292f091391af4f0a" name="Programområde">
           <properties documentation="Programområde er et kurs i den videregående skolen. Et programområde strekker seg vanligvis over ett eller flere år og er gjerne en spesialisert retning eller område for fordypning innen utdanningsprogrammet.&#10;&#10;# Beskrivelse&#10;&#10;Innenfor utdanningsprogrammet studiespesialisering, er eksempler på programområder realfag, språk, samfunnsfag og økonomi og formgivingsfag.&#10;&#10;Innenfor utdanningsprogrammet naturbruk, finnes det for eksempel i andre klasse (Vg2) programområdene akvakultur, anleggsgartner og driftsoperatør idrettsanlegg, fiske og fangst, heste- og hovslagerfag, landbruk og gartneri, reindrift og skogbruk.&#10;&#10;Programområdekoder som slutter på  `----` angir at det er standardversjon av programområdet, og ikke en fylkeskommunal variant.&#10;&#10;# Eksempler&#10;&#10;* Anleggsmaskinførerf,PB&#10;* Asfaltfaget,PB&#10;* Banemontørfaget,PB&#10;* Betongfaget,PB&#10;* Bioenergi (D)&#10;* Byggdrifterfaget,PB&#10;* FDV-utdanning, 1 år (D)&#10;* Feierfaget,PB&#10;* Matrosfaget,PB&#10;* Modellbyggerfaget,PB&#10;* Motormannfaget,PB&#10;* Motormekanikerfaget,PB&#10;* Motorsykkelfaget,PB&#10;&#10;# Referanser&#10;&#10;* UDir Registreringshåndbok: [regbok.udir.no/35004/3344/35042-1014307.html](http://regbok.udir.no/35004/3344/35042-1014307.html)&#10;* Wikipedia: https://no.wikipedia.org/wiki/Programområde&#10;* Grepwiki: http://grepwiki.udir.no/index.php?title=Programområde&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_670cda54558c52990e">
@@ -11862,6 +11899,7 @@ Synonym: Utdanningsgruppe
           </packagedElement>
         </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_7d393bbf6a0753a549" name="vurdering">
+        <properties stereotype="ApplicationSchema" />
         <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_b718f596d9ccb555dd" name="Anmerkninger">
           <properties documentation="Aanmerkninger for en elev for et elevforhold.&#10;" stereotype="hovedklasse" />
           <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_85163de89122b2b1b1">
