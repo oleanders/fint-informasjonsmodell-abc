@@ -74,18 +74,12 @@ gen-doc --directory ./docs --include-top-level-diagram --diagram-type er_diagram
 
 ## Oppsett av utviklingsmiljø
 
-### om ikke python er på plass
-
 ```bash
-brew install pipx
-pipx ensurepath
-```
+python3 -m venv .venv
+source .venv/bin/activate
+pip install linkml
+pip install pyyaml
 
-### Installere LinkML
-
-```bash
-pipx install linkml
-pipx ensurepath
 ```
 
 ### Verktøy som blir tilgjengelig
