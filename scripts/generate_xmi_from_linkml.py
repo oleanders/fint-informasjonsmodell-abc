@@ -241,6 +241,11 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
     })
 
     package_elements: Dict[Tuple[str, ...], ET.Element] = {(): model}
+    extension_el = ET.SubElement(root, f"{{{XMI_NS}}}Extension", {
+        "extender": "Enterprise Architect",
+        "extenderID": "6.5",
+    })
+    extension_elements = ET.SubElement(extension_el, "elements")
 
     for pkg_path in sorted(packages.keys(), key=lambda p: (len(p), p)):
         parent_path = pkg_path[:-1]
@@ -252,6 +257,16 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
         })
         ET.SubElement(pkg_element, "properties", {"stereotype": "ApplicationSchema"})
         package_elements[pkg_path] = pkg_element
+
+        pkg_ext = ET.SubElement(extension_elements, "element", {
+            f"{{{XMI_NS}}}idref": package_id_map[pkg_path],
+            f"{{{XMI_NS}}}type": "uml:Package",
+            "name": pkg_path[-1],
+            "scope": "public",
+        })
+        ET.SubElement(pkg_ext, "properties", {
+            "stereotype": "ApplicationSchema",
+        })
 
         for schema_class in packages[pkg_path]["classes"]:
             class_key = pkg_path + (schema_class.name,)
@@ -320,6 +335,22 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
 
                 if slot.description:
                     add_comment(attr_el, slot.description, make_id("CMT", attr_id))
+
+            class_props = {}
+            class_doc = sanitize_attribute_text(schema_class.description)
+            if class_doc:
+                class_props["documentation"] = class_doc
+            if schema_class.stereotypes:
+                class_props["stereotype"] = schema_class.stereotypes[0]
+
+            class_ext = ET.SubElement(extension_elements, "element", {
+                f"{{{XMI_NS}}}idref": class_id_map[class_key],
+                f"{{{XMI_NS}}}type": "uml:Class",
+                "name": schema_class.name,
+                "scope": "public",
+            })
+            if class_props:
+                ET.SubElement(class_ext, "properties", class_props)
 
     indent(root)
     return ET.ElementTree(root)

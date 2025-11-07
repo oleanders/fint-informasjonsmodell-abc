@@ -13399,4 +13399,734 @@ Vurderinger som ikke er endelige, regnes som underveisvurderinger.
         </packagedElement>
       </packagedElement>
     </uml:Model>
+  <xmi:Extension extender="Enterprise Architect" extenderID="6.5">
+    <elements>
+      <element xmi:idref="EAID_PKG_9a2a1a564a72df16e2" xmi:type="uml:Package" name="administrasjon" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_PKG_9df7892e217c55e819" xmi:type="uml:Package" name="arkiv" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_PKG_384581495d1610d8fe" xmi:type="uml:Package" name="felles" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_fa075ce0d6dd51fae1" xmi:type="uml:Class" name="Kontaktperson" scope="public">
+        <properties documentation="Kontaktperson til en person.&#10;&#10;# Beskrivelse&#10;&#10;Kontaktperson er personer som kan kontaktes dersom det er behov for det.&#10;&#10;Kontaktperson kalles også pårørende.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_6a11aa954c6810363e" xmi:type="uml:Class" name="Person" scope="public">
+        <properties documentation="Fysiske private personer&#10;&#10;# Beskrivelse&#10;&#10;Fysiske personer. Arver felter fra [Aktør](Class:Aktør).&#10;&#10;# Eksempler&#10;&#10;## Riktig&#10;&#10;* Karl August Haraldsen&#10;&#10;## Feil&#10;&#10;* Statsminister&#10;&#10;# Referanse&#10;&#10;* [Wiki side](https://no.wikipedia.org/wiki/Fysisk_person)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_ee22bd2997a2ad9279" xmi:type="uml:Class" name="Virksomhet" scope="public">
+        <properties documentation="En juridisk organisasjon som produserer varer eller tjenester.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_20e0ae6c58d11b47f3" xmi:type="uml:Package" name="okonomi" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_PKG_9de47cd65b339bbb2b" xmi:type="uml:Package" name="personvern" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_PKG_ac0f25b71d241db132" xmi:type="uml:Package" name="ressurs" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_PKG_c931f36cdf31985f70" xmi:type="uml:Package" name="utdanning" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_PKG_27ee59b1262976fcde" xmi:type="uml:Package" name="fullmakt" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_e258ae55bc2629bbc7" xmi:type="uml:Class" name="Fullmakt" scope="public">
+        <properties documentation="Fullmakt til å gjøre handlinger i forhold til en gitt Rolle.&#10;&#10;# Beskrivelse&#10;&#10;Fullmakter innehas av fysiske eller juridiske personer, og er knyttet til kontodimensjon eller organisasjonselement. Fullmakter er delegert til personer, disse benevnes som fullmektige.&#10;&#10;Fullmektige kan ha stedfortreder. Stedfortrederen kan utøve den samme fullmakten som den fullmektige.&#10;&#10;Fullmakter beskrives i delegasjonsreglementet for organisasjonen. For fylkeskommuner er dette et reglement besluttet av Fylkestinget og videre delegert av Fylkesrådmannen.&#10;&#10;Dersom fullmakt har relasjon til mer enn en kontodimensjon (og organisasjonselement) er det å regne som en kombinasjonsfullmakt. &#10;&#10;# Eksempler&#10;&#10;Rektor ved Eidsvoll VGS har anvisningsfullmakt for ansvar 241.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_cee5e2267587fb47c3" xmi:type="uml:Class" name="Rolle" scope="public">
+        <properties documentation="Rettighet eller type fullmakt.&#10;&#10;De vanligste rollene er:&#10;&#10;- Attestant&#10;- Anviser&#10;- Bestiller&#10;- Kontering&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_16aa82aad3a9ee0e48" xmi:type="uml:Package" name="kodeverk" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_73c5da61eb77560465" xmi:type="uml:Class" name="Aktivitet" scope="public">
+        <properties documentation="Aktivitet er en del av kontostrengen og er en detaljering av funksjon.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_9f4120ba5a00b655be" xmi:type="uml:Class" name="Anlegg" scope="public">
+        <properties documentation="Anlegg er en del av kontostrengen og er et objekt som skal aktiveres eller avskrives.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_c59314147b77343cff" xmi:type="uml:Class" name="Ansvar" scope="public">
+        <properties documentation="Kodeverk som er en del av kontostrengen som beskriver hvem som har ansvaret for en utgift eller en inntekt&#10;&#10;# Beskrivelse&#10;&#10;Ansvar viser hvordan ansvaret i organisasjonen er bygd opp i samsvar med fylkeskommunens anvisningsmyndighet.&#10;&#10;Alternative navn: `Kostsenter`, `Koststed`.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_169ee2ce4738dc5eea" xmi:type="uml:Class" name="Arbeidsforholdstype" scope="public">
+        <properties documentation="Viser hvilket behov hos arbeidsgiver som dekkes av arbeidsforholdet&#10;&#10;# Beskrivelse&#10;&#10;Viser hvilket behov hos arbeidsgiver som dekkes av arbeidsforholdet&#10;&#10;Alternative navn:&#10;* Stillingstype&#10;* Stillingskategori&#10;* Ansattforholdkode&#10;&#10;# Eksempel&#10;&#10;Kode | Beskrivelse&#10;---|---&#10;A   |     Fast&#10;B    |    Timelønnet&#10;C   |     Lærlinger&#10;D   |     Folkevalgt/politiker&#10;E    |    Midlertidig&#10;...   | ...&#10;Z    |    Annet&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_76f094180a72571dcd" xmi:type="uml:Class" name="Art" scope="public">
+        <properties documentation="Kodeverk som er en del av kontostrengen som beskriver hva slags inntekter og utgifter det gjelder. &#10;&#10;# Beskrivelse&#10;&#10;Alternativt navn: Konto&#10;&#10;Art er det første og såkalt styrende begrepet i kontostrengen. Angir om det er drift, investering eller balanse.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_83551782b69dda7f8d" xmi:type="uml:Class" name="Diverse" scope="public">
+        <properties documentation="Diverser er en del av kontostrengen og benyttes som et supplement til de spesifikasjoner som framkommer i de øvrige dimensjonene.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_efcee1c1b5789b49ff" xmi:type="uml:Class" name="Formål" scope="public">
+        <properties documentation="Kodeverk som detaljerer inntekter og utgifter ved drift&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_13a458f4ea46a2c4e8" xmi:type="uml:Class" name="Fraværsgrunn" scope="public">
+        <properties documentation="Grunn til fravær.&#10;&#10;# Eksempel&#10;&#10;- Arbeidsrelatert&#10;- Ikke arbeidsrelatert&#10;- Svangerskap&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_e2452058c2b6fd2bd1" xmi:type="uml:Class" name="Fraværstype" scope="public">
+        <properties documentation="Type fravær.&#10;&#10;# Beskrivelse&#10;&#10;Inneholder informasjon om hva slags type fravær det er som registreres, eksempelvis ferie, permisjon eller sykdom.&#10;&#10;Typen fravær brukes av HRM-systemet til å bestemme om fraværet har lønnskonsekvens, hvilken lønnsart som i så fall skal brukes, og om den er knyttet til en permisjon.&#10;&#10;# Eksempel&#10;&#10;- Egenmelding&#10;- Syk med legemelding&#10;- Barn og/ eller barnepassers sykdom&#10;- Ferie med lønn&#10;- Velferdspermisjon med lønn&#10;- Utdanningspermisjon med lønn&#10;- Utdanningspermisjon uten lønn&#10;- Foreldrepermisjon 100%&#10;- Foreldrepermisjon 80 %&#10;- Avspasering&#10;- Møter&#10;- Kurs&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_6de891f82543316cec" xmi:type="uml:Class" name="Funksjon" scope="public">
+        <properties documentation="Del av kontostrengen som beskriver hva som produseres&#10;&#10;# Beskrivelse&#10;&#10;Funksjon viser fylkeskommunens aktivitet og tjenesteproduksjon.&#10;&#10;Alternativ navn: `Tjeneste`&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_8f3eebd2771600bef8" xmi:type="uml:Class" name="Kontodimensjon" scope="public">
+        <properties documentation="Abstrakt fellesbegrep som beskriver dimensjon i kontoplan.&#10;&#10;# Beskrivelse&#10;&#10;Fellesbenevnelse for dimensjoner i en kontoplan.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_3737bd877cfe1eb4a0" xmi:type="uml:Class" name="Kontrakt" scope="public">
+        <properties documentation="Kontrakt transaksjonen er knyttet til.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_3c5897705a16627163" xmi:type="uml:Class" name="Lønnsart" scope="public">
+        <properties documentation="Type ytelse.&#10;&#10;# Beskrivelse&#10;&#10;Lønnsart brukes av HRM-systemer for å indikere hvordan en ytelse skal behandles.&#10;&#10;Den inneholder også knytning til hvordan ytelsen skal rapporteres på A-meldingen.&#10;&#10;Tidligere hadde lønnsart knytning til LTO-kode og LT-kode.&#10;&#10;# Referanser&#10;&#10;* Rapportering av ytelser på A-meldingen: http://veiledning-amelding.smartlearn.no/Veiledn_Generell/index.html#!Documents/rapporteringavkontantytelser.htm&#10;* Altinn: Innholdet i A-meldingen: https://www.altinn.no/no/a-ordningen/om-a-meldingen/Innholdet-i-a-meldingen/&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_290a76eafe3edd5854" xmi:type="uml:Class" name="Løpenummer" scope="public">
+        <properties documentation="Løpenummer i en nummerserie.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_7b68632e3fc90377a5" xmi:type="uml:Class" name="Objekt" scope="public">
+        <properties documentation="Et bygg, en vei eller en bestemt mottaker av en tjeneste eller et tilskudd m.m.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_6700e9607635744b93" xmi:type="uml:Class" name="Organisasjonstype" scope="public">
+        <properties documentation="Typen til et organisasjonselement.&#10;&#10;# Eksempler&#10;&#10;* Virksomhet&#10;* Klinikk&#10;* Seksjon&#10;* Avdeling&#10;* Team&#10;* Divisjon&#10;* Stab&#10;* Skolegruppe&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_925e0458f76c573e73" xmi:type="uml:Class" name="Personalressurskategori" scope="public">
+        <properties documentation="Ansattform til et arbeidsforhold&#10;&#10;# Beskrivelse&#10;&#10;Alternativ navn:&#10;* Ansatt (er ikke datatype, men kodeverk)&#10;* Ansattkategori&#10;* Ansattformer&quot;&#10;&#10;# Eksempel&#10;&#10;## Eksempel fra Visma HR - Kategori:&#10;&#10;Kode | Beskrivelse&#10;---|---&#10;F | Fast&#10;M | Midlertidig&#10;O | Oppdragstaker&#10;P | Politiker&#10;S | Sluttet&#10;&#10;## Eksempel fra Agresso - Ressurstype:&#10;&#10;Kode  | Beskrivelse&#10;---|---&#10;1 | Ansatt - kommunal&#10;10 | Lærling/Ung arb.taker&#10;2 | Ansatt - undervisning&#10;3 | Honorar/godtgjørelse&#10;4 | Sluttet&#10;5 | Nyansatt&#10;6 | Ikke ansatt - kun bruker&#10;7 | Politikere&#10;8|  Selvstendig næringsdrivende&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_296fe892610e6789bf" xmi:type="uml:Class" name="Prosjekt" scope="public">
+        <properties documentation="Del av kontostrengen som peker på løpende prosjekter.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_7d0cfa40773fdd95d0" xmi:type="uml:Class" name="Prosjektart" scope="public">
+        <properties documentation="Prosjektart er et element i enten en prosjektnedbrytningsstruktur eller en arbeidsnedbrytningsstruktur.&#10;&#10;# Prosjektnedbrytningsstruktur (PNS)&#10;&#10;Engelsk: Project Breakdown Structure (PBS)&#10;&#10;Det fokuseres på delprodukter:&#10;&#10;* Delprodukt&#10;* Delprosjekt&#10;&#10;# Arbeidsnedbrytningsstruktur&#10;&#10;Engelsk: Work Breakdown Structure (WBS)&#10;&#10;Det fokuseres på arbeidsoppgaver:&#10;&#10;* Arbeidspakke&#10;* Oppgave&#10;* Deloppgave&#10;&#10;# Lenker&#10;&#10;* [En enkel oppskrift på en arbeidsnedbrytningsstruktur ](https://www.prosjektbloggen.no/en-enkel-oppskrift-pa-en-arbeidsnedbrytningsstruktur)&#10;* [Prosjektnedbrytningsstruktur(PNS/WBS)](http://ledelsesspire.blogspot.com/2013/10/prosjektnedbrytningsstruktur-pnswbs.html)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_ef51f837cfda854655" xmi:type="uml:Class" name="Ramme" scope="public">
+        <properties documentation="Ramme er en del av kontostrengen og viser hvilken budsjettramme som skal bære kostnadene.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_b5676e2ad3c620e206" xmi:type="uml:Class" name="Stillingskode" scope="public">
+        <properties documentation="Et felles kodeverk for stillinger&#10;&#10;# Beskrivelse&#10;&#10;I det fylkeskommunale lønnssystemet har alle stillinger en stillingskode og en stillingsbetegnelse (for eksempel 7026 for bibliotekar eller 7076 for hjelpepleier). Stillingskoden kan angi noe om stillingens innhold og lønnsnivå.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_78535dba2a11e14341" xmi:type="uml:Class" name="Uketimetall" scope="public">
+        <properties documentation="Timer per uke i 100 % stilling&#10;&#10;# Beskrivelse&#10;&#10;# Eksempel&#10;&#10;## Eksempel fra Agresso - Arbeidsplan:  &#10;&#10;Kode   |     Beskrivelse&#10;---|---&#10;33,6   |     33,6 timers uke&#10;34,0    |    34,0 timers uke&#10;34,5     |   34,5 timers uke&#10;35,0     |   35,0 timers uke&#10;35,5     |   35,5 timers uke&#10;36,0     |   36,0 timers uke&#10;37,5     |   37,5 timers uke&#10;...    | ...&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_f46606b96de86119e1" xmi:type="uml:Package" name="komplekse-datatyper" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_287dee2f3baeed4326" xmi:type="uml:Class" name="Kontostreng" scope="public">
+        <properties documentation="Sammensetning av kontodimensjoner for bokføring&#10;&#10;# Beskrivelse&#10;&#10;Henvisninger til koder i alle kontodimensjoner for kontering av en kostnad eller inntekt.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_c5515e4f4931267c64" xmi:type="uml:Package" name="organisasjon" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_a165c8aff81b7b33a1" xmi:type="uml:Class" name="Arbeidslokasjon" scope="public">
+        <properties documentation="Fysisk lokasjon hvor en ansatt har sitt arbeidssted.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_e886f8e35302d25d50" xmi:type="uml:Class" name="Organisasjonselement" scope="public">
+        <properties documentation="Et element i organisasjonsstrukturen&#10;&#10;# Beskrivelse&#10;&#10;Innslagspunkt i organisasjonsstrukturen. Organisasjonselement er en avdeling/seksjon/enhet, som inneholder relasjon til leder. &#10;&#10;Flere organisasjonselement bygger hierarki med relasjon til orverordnet organisasjonselement, som former organisasjonsstrukturen.&#10;&#10;# Eksempler&#10;&#10;|     OrgKode     | OrgId |             Beskrivelse              | overordenetId |&#10;|-----------------|---------|--------------------------------------|-----------------|&#10;| F12             |      25 | OPPL Opplæringsavdelingen            |               0 |&#10;| F12.10          |      28 | OPPL Videregående opplæring          |              25 |&#10;| F12.10.44       |      39 | ASKI Askim vgs                       |              28 |&#10;| F12.10.44.50.15 |      52 | ASKI Internasjonalisering og eksamen |              39 |&#10;| F12.10.44.50.15 |      55 | ASKI FG Idrett                       |              52 |&#10;| F12.10.44.10    |      70 | ASKI Personal- og renholdsstab       |              39 |&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_08a18d4616b81c4d7d" xmi:type="uml:Package" name="personal" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_022b6775ef7e48361d" xmi:type="uml:Class" name="Arbeidsforhold" scope="public">
+        <properties documentation="Arbeidsforhold er et avtaleforhold mellom personalressurs og arbeidsgiver&#10;&#10;# Beskrivelse&#10;&#10;Arbeidsforhold defineres som et avtaleforhold hvor den ene part (arbeidstakeren / personalressurs) forplikter seg til å utføre arbeid for den annen part (arbeidsgiveren / organisasjonselement). Arbeidsforholdet kan også utføres av en person fra vikarbyrå, eller et firma gjennom en kontrakt/avtale.&#10;&#10;# Eksempler&#10;&#10;* Ansatt som rådgiver i fast stilling&#10;* Vikariat for en annen person som er i permisjon fra sitt arbeidsforhold&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_3c59e3e63655cc74c0" xmi:type="uml:Class" name="Fastlønn" scope="public">
+        <properties documentation="Informasjon om fast lønnsbeskjeftigelse.&#10;&#10;Inneholder beskjeftigelse av den ansattes lønnsprosent.&#10;&#10;Summen av prosentene på beskjeftigelsene skal være lønnsprosent for en fullt dekket stilling.&#10;&#10;Dersom beskjeftigelsene ikke fyller lønnsprosenten har arbeidsforholdet teknisk undertid. &#10;&#10;I motsatt fall har arbeidsforholdet overtid.&#10;&#10;# Lovlige endringer&#10;&#10;## Opprettelse av ny fastlønn&#10;&#10;- `periode` angir periode som beskjeftigelsen skal gjelde for.  &#10;- Periode uten `slutt` betyr at beskjeftigelsen gjelder inntil videre.&#10;&#10;## Endring av eksisterende fastlønn&#10;&#10;- Kun endring av `slutt` på `periode` er lovlig.&#10;&#10;## Sletting av eksisterende fastlønn&#10;&#10;- Ikke tillatt.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_126267a373275b7b1c" xmi:type="uml:Class" name="Fasttillegg" scope="public">
+        <properties documentation="Faste tillegg til utbetaling.&#10;&#10;# Lovlige endringer&#10;&#10;## Opprettelse av nytt fasttillegg&#10;&#10;- `periode` angir periode som tillegget skal gjelde for.  &#10;- Periode uten `slutt` betyr at tillegget gjelder inntil videre.&#10;&#10;## Endring av eksisterende fasttillegg&#10;&#10;- Kun endring av `slutt` på `periode` er lovlig.&#10;- Setting av `slutt` indikerer når tillegget ikke lenger skal utbetales&#10;&#10;## Sletting av eksisterende fasttillegg&#10;&#10;- Ikke tillatt.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_f4f986c645e162529b" xmi:type="uml:Class" name="Fravær" scope="public">
+        <properties documentation="Fravær fra et arbeidsforhold.&#10;&#10;# Beskrivelse&#10;&#10;Representerer fravær fra et gitt arbeidsforhold. Fraværet har en type og en varighet, og kan være helt eller delvis.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_28973631f2e771b910" xmi:type="uml:Class" name="Lønn" scope="public">
+        <properties documentation="Informasjon om lønn for et arbeidsforhold.&#10;&#10;# Beskrivelse&#10;&#10;Lønn inneholder informasjon om lønn som skal utbetales for et arbeidsforhold.  Lønn er enten Fastlønn, Fasttillegg  eller Variabellønn.&#10;&#10;Lønn blir kontert, attestert og anvist av personalressurser som har fullmakter til dette.&#10;&#10;Lønn utbetales til et arbeidsforhold, for en gitt periode.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_658adde275f9a1bcec" xmi:type="uml:Class" name="Personalressurs" scope="public">
+        <properties documentation="Arbeidstaker eller oppdragstaker i organisasjonen&#10;&#10;# Beskrivelse&#10;&#10;Personalressurs er personer som leverer tjenester i form av å være ansatt. Personalressursen kan også være en person fra vikarbyrå, eller et firma som bekler et arbeidsforhold gjennom en kontrakt/avtale. Registrert i HR-systemet.&#10;&#10;# Eksempler&#10;&#10;* *ordinære* ansatte i faste og midlertidige stillinger&#10;* oppdragstakere: &#10;  * politikere&#10;  * ressurser med timelønn&#10;  * sensorer&#10;  * eksamensvakt&#10;  * hospitant&#10;&#10;Inneholder i utgangspunktet ikke *leverandørrepresenanter* (ekstern vikar, foredragsholdere, konsulenter).&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_fbc7510572a3d9f0c9" xmi:type="uml:Class" name="Variabellønn" scope="public">
+        <properties documentation="Informasjon om variabel lønn.&#10;&#10;# Beskrivelse&#10;&#10;Variabel lønn består av ett eller flere tillegg, hver knyttet til en lønnsart.  Lønnsart bestemmer eventuelle faste satser for tillegget, samt grunnlag for skatt- og pensjonstrekk, og hvordan det rapporteres på A-meldingen.&#10;&#10;Selve beregningen av variabel lønn gjøres av HRM, og formålet er å overføre tilstrekkelig informasjon til at HRM kan foreta beregningen.&#10;&#10;Må brukes sammen med lønnsart for at HRM-systemet skal foreta korrekt beregning og rapportere riktig på A-meldingen.&#10;&#10;# Eksempler:&#10;&#10;1. Vikartime for undervisningspersonell: &#10;  - antall: antall timer * 1400 / årsramme&#10;2. Timelønn&#10;  - antall: antall timer&#10;3. Kjøregodtgjørelse&#10;  - antall: antall kilometer&#10;4. Kontantytelse for et møte&#10;  - antall: beløp&#10;&#10;# Lovlige endringer&#10;&#10;## Opprettelse av ny variabelllønn&#10;&#10;- `periode` angir periode hvor variabellønn skal utbetales.  &#10;- `opptjent` må benyttes dersom lønn ble opptjent i en annen utbetalingsperiode.&#10;&#10;## Endring av eksisterende variabellønn&#10;&#10;- Ikke tillatt.&#10;&#10;## Sletting av eksisterende variabellønn&#10;&#10;- Ikke tillatt.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_c264abc1482668dfa6" xmi:type="uml:Package" name="kodeverk" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_0234a9fee5ba4c3099" xmi:type="uml:Class" name="DokumentStatus" scope="public">
+        <properties documentation="Kodeverk for status til et dokument.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M054&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_f02c3e88d3c1507c52" xmi:type="uml:Class" name="DokumentType" scope="public">
+        <properties documentation="Kodeverk for type dokument.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M083&#10;&#10;I Noark ble begrepet Dokumentkategori endret til Dokumenttype i versjon 4.&#10;Begrepet Dokumentkategori brukes i Elements og P360.&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden#!#block-body-2&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_4fb0ccbcd65a326664" xmi:type="uml:Class" name="Format" scope="public">
+        <properties documentation="Dokumentets format.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M701&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;&#10;* https://arkivverket.metakat.no/Objekttype/Index/EAID_A17DA4C4_5952_4511_B44F_C8CA6A790558&#10;&#10;* https://lovdata.no/forskrift/2017-12-19-2286/§5-17 (Godkjente filformater for arkivdokumenter ved avlevering eller deponering).&#10;&#10;# Eksempler&#10;&#10;* RA-TEKST&#10;* RA-TIFF6&#10;* RA-PDF&#10;* RA-XML&#10;* RA-JPEG&#10;* RA-SOSI&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_dd78c9afbaa7f1e04b" xmi:type="uml:Class" name="JournalpostType" scope="public">
+        <properties documentation="Navn på type journalpost.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M082&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_6d3dfdb3a4d576385d" xmi:type="uml:Class" name="JournalStatus" scope="public">
+        <properties documentation="Status til journalposten, dvs. om dokumentet er registrert, under behandling eller endelig arkivert.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M053&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_ba6df9b83e6d7adebb" xmi:type="uml:Class" name="Klassifikasjonstype" scope="public">
+        <properties documentation="Kodeverk for type klassifikasjonssystem.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M086&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_d5856aedde11917eed" xmi:type="uml:Class" name="KorrespondansepartType" scope="public">
+        <properties documentation="Kodeverk over korrespondansepart typer.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M087&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_b98fe22c457249c6e7" xmi:type="uml:Class" name="Merknadstype" scope="public">
+        <properties documentation="Navn på type merknad&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M084&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_d508f85e6beebbe23e" xmi:type="uml:Class" name="PartRolle" scope="public">
+        <properties documentation="Angivelse av rollen til parten.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M303&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_1860e1feec9531632c" xmi:type="uml:Class" name="Rolle" scope="public">
+        <properties documentation="Rollen til en arkivressurs.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M581&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_ddac8c800d259afc4e" xmi:type="uml:Class" name="Saksmappetype" scope="public">
+        <properties documentation="Saksmappetyper brukes for å differensiere innhold og etter hvilke rutiner saker skal behandles.&#10;&#10;Dette er ikke en del av Noark standarden.&#10;&#10;# Synonymer&#10;&lt;ul&gt;&#10; &lt;li&gt;Sakstype (P360)&lt;/li&gt;&#10;&lt;/ul&gt;&#10;&#10;# Eksempel&#10;&#10;* Sak&#10;* PE&#10;* TS&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_7bd2665413b3ac5a94" xmi:type="uml:Class" name="Saksstatus" scope="public">
+        <properties documentation="Status til saksmappen, dvs. hvor langt saksbehandlingen har kommet.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M052&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_260ee6afe175710319" xmi:type="uml:Class" name="Skjermingshjemmel" scope="public">
+        <properties documentation="Henvisning til hjemmel (paragraf) i offentlighetsloven, sikkerhetsloven eller beskyttelsesinstruksen.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M501&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_03ea1a989787137d7b" xmi:type="uml:Class" name="Tilgangsgruppe" scope="public">
+        <properties documentation="Tilgangsgruppe gir mulighet for å skjerme innhold internt for andre brukere.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_7c6cacab94ce3bd7d0" xmi:type="uml:Class" name="Tilgangsrestriksjon" scope="public">
+        <properties documentation="Angivelse av at dokumentene som tilhører arkivenheten ikke er offentligtilgjengelig i henhold til offentlighetsloven eller av en annen grunn.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M500&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_400d474da785f17000" xmi:type="uml:Class" name="TilknyttetRegistreringSom" scope="public">
+        <properties documentation="Angivelse av hvilken &quot;rolle&quot; dokumentet har i forhold til registreringen.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M217&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_26f471104a6baed236" xmi:type="uml:Class" name="Variantformat" scope="public">
+        <properties documentation="Angivelse av hvilken variant et dokument forekommer i.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M700&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_e03199d7374ad112af" xmi:type="uml:Package" name="kulturminnevern" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_c5b5e828adde73e671" xmi:type="uml:Class" name="DispensasjonAutomatiskFredaKulturminne" scope="public">
+        <properties documentation="Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_0e43d0a5f5b8484b79" xmi:type="uml:Class" name="TilskuddFartøy" scope="public">
+        <properties documentation="Sak om søknad om tilskudd til freda fartøy.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_7db22abf2ce144cec1" xmi:type="uml:Class" name="TilskuddFredaBygningPrivatEie" scope="public">
+        <properties documentation="Sak om søknad om tilskudd til freda bygninger i privat eie (FRIP).&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_c36acd0ce3ada4ece3" xmi:type="uml:Package" name="noark" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_2e395b2932a387ea4c" xmi:type="uml:Class" name="AdministrativEnhet" scope="public">
+        <properties documentation="Navn på avdeling, kontor eller annen administrativ enhet som har ansvaret for saksbehandlingen.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 4.2&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M086&#10;&#10;# Referanser&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_db5f2cf70b36887231" xmi:type="uml:Class" name="Arkivdel" scope="public">
+        <properties documentation="En vilkårlig definert del av et arkiv. Et arkiv skal kunne deles opp i arkivdeler for å gruppere arkivet etter overordnede kriterier. &#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.3&#10;&#10;# Referanser &#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_b8d17d54448a585943" xmi:type="uml:Class" name="Arkivressurs" scope="public">
+        <properties documentation="Ansatt med rolle og rettigheter innen arkiv.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 4.3&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_66f1dc5e1232da5510" xmi:type="uml:Class" name="Autorisasjon" scope="public">
+        <properties documentation="Siling av hva en individuell pålogget bruker faktisk får lov til å gjøre i løsningen.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 4.5 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_4b6951a568753fc565" xmi:type="uml:Class" name="Avskrivning" scope="public">
+        <properties documentation="En Journalpost av typen ”inngående dokument” eller ”organinternt dokument for oppfølging” står i restanse inntil de er markert som ferdigbehandlet, eller avskrives. Det følger av arkivforskriften &amp;#167; 10 at avskrivningsmåte skal fremgå av journalen.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard, kapittel 3.4 Avskrivning og saksoppfølging  &#10;&#10;# Referanser &#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_5172b181cdb65e790b" xmi:type="uml:Class" name="Dokumentbeskrivelse" scope="public">
+        <properties documentation="Den vanligste bruken av &lt;i&gt;dokumentbeskrivelse &lt;/i&gt;er for å skille mellom hoveddokument og vedlegg, hvor hoveddokumentet og hvert av vedleggene utgjør hvert sitt enkeltdokument.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.7 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_94ffb3d39cc961e09b" xmi:type="uml:Class" name="Dokumentfil" scope="public">
+        <properties documentation="Dokumentfila inneholder selve dokumentet. Dersom dokumentet er arkivert i flere versjoner, må vi ha et dokumentobjekt og en dokumentfil for hver versjon.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.7 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_840a7895752fd8b452" xmi:type="uml:Class" name="Dokumentobjekt" scope="public">
+        <properties documentation="Dokumentobjekt skal referere til &amp;#233;n og kun en dokumentfil. Dokumentfila inneholder selve dokumentet.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_19a98fa7e00587f89c" xmi:type="uml:Class" name="Journalpost" scope="public">
+        <properties documentation="En journalpost representer en &quot;innføring i journalen&quot;. Journalen er en kronologisk fortegnelse over inn- og utgående dokumenter (dvs. korrespondansedokumenter) brukt i saksbehandlingen, og eventuelt også interne dokumenter.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.6 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_2749fd715618af8121" xmi:type="uml:Class" name="Klasse" scope="public">
+        <properties documentation="Et klassifikasjonssystem er bygd opp av klasser. &#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.4&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_d95ae04b85747e05bf" xmi:type="uml:Class" name="Klassifikasjonssystem" scope="public">
+        <properties documentation="Beskriver den overordnede strukturen for mappene i en eller flere arkivdeler.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.4 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_d4410fd7077773498a" xmi:type="uml:Class" name="Korrespondansepart" scope="public">
+        <properties documentation="Virksomhet eller person som arkivskaper mottar eller sender arkivdokumenter til.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.6 &#10;&#10;# Referanser &#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_0a838a47e1246e658f" xmi:type="uml:Class" name="Mappe" scope="public">
+        <properties documentation="En mappe grupperer dokumenter som på en eller annen måte hører sammen.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.5 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_b12f913bfd04466164" xmi:type="uml:Class" name="Merknad" scope="public">
+        <properties documentation="Merknader knyttet til mappe, registrering eller dokumentbeskrivelse.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.8.4 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_05be70954f3961c727" xmi:type="uml:Class" name="Part" scope="public">
+        <properties documentation="Part til Mappe, Registrering eller Dokumentbeskrivelse.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.8.5&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_55d45e6d3181d2cb88" xmi:type="uml:Class" name="Registrering" scope="public">
+        <properties documentation="En registrering utgjør arkivets primære byggeklosser.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.6 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_310400821999e93d53" xmi:type="uml:Class" name="Sak" scope="public">
+        <properties documentation="Generisk sak.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_d3bfd4dcbf95cc9771" xmi:type="uml:Class" name="Saksmappe" scope="public">
+        <properties documentation="Spesialisering av Mappe som tilsvarer en ”sak” i Noark.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.5 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_0392de1018d2ca2624" xmi:type="uml:Class" name="Skjerming" scope="public">
+        <properties documentation="Skjerming benyttes til å skjerme registrerte opplysninger eller enkeltdokumenter. Skjermingen trer i kraft når en tilgangskode påføres den enkelte mappe, registrering eller det enkelte dokument.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 2.8.1 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_be3a17a01c537b0710" xmi:type="uml:Class" name="Tilgang" scope="public">
+        <properties documentation="Styring av hvem som har tilgang til hvilke opplysninger. &#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 standard - kap. 4 &#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_0521fc874505f199ce" xmi:type="uml:Package" name="personal" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_7972da846844535d87" xmi:type="uml:Class" name="Personalmappe" scope="public">
+        <properties documentation="Saksmappe med opplysninger om den enkelte arbeidstakers arbeidsforhold.&#10;&#10;# Beskrivelse&#10;&#10;Opplysninger i en personalmappe kan være personalia, arbeidskontrakt og annen korrespondanse som berører arbeidsforholdet.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_f31a7c31191b19443e" xmi:type="uml:Package" name="samferdsel" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_af70e5f22fc0925d52" xmi:type="uml:Class" name="SøknadDrosjeløyve" scope="public">
+        <properties documentation="Sak om søknad om løyve (tillatelse til å) kjøre drosje.&#10;&#10;# Beskrivelse&#10;&#10; Et drosjeløyve er en tillatelse til å transportere mennesker i personbil mot betaling.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_3fb584cbee374632dc" xmi:type="uml:Package" name="basisklasser" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_0f753942ddbb43f8ce" xmi:type="uml:Class" name="Aktør" scope="public">
+        <properties documentation="Person eller enhet vi samhandler med.&#10;&#10;# Beskrivelse&#10;&#10;Abstrakt klasse som inneholder relasjon til kontaktinformasjon og identifikator. Må enten brukes som Person, Enhet, eller annen underliggende klasse, som feks organisasjonselement.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_cc72a9a2580b226ff5" xmi:type="uml:Class" name="Begrep" scope="public">
+        <properties documentation="Overordnet beskrivelse av et element i et kodeverk&#10;&#10;# Beskrivelse&#10;&#10;* Overordnet element har ingen forelder&#10;Sjekker ved innhenting av data:&#10;* Det skal være bare 1 overordnet element i hver kodeverk&#10;* Det er ingen sykluser definert med forelder forholdet&#10;&#10;# Eksempel&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_9a9c33b2f8cb913c90" xmi:type="uml:Class" name="Enhet" scope="public">
+        <properties documentation="Alle hovedenheter, underenheter og organisasjonsledd som er identifisert med et organisasjonsnummer&#10;&#10;# Beskrivelse&#10;&#10;Løs relasjon til BRREG.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_649a83ff6592c8912f" xmi:type="uml:Package" name="kodeverk" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_56658948766c1905c6" xmi:type="uml:Class" name="Fylke" scope="public">
+        <properties documentation="Liste over Norges fylker&#10;&#10;# Referanser&#10;&#10;* &quot;SSB: Standard for fylkesinndeling&quot;:http://www.ssb.no/klass/#!/klassifikasjoner/104&#10;* &quot;data.norge.no&quot;:&#10;http://data.norge.no/data/statistisk-sentralbyr%C3%A5/fylkesinndeling&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_c5d76e090df32a6a0d" xmi:type="uml:Class" name="Kommune" scope="public">
+        <properties documentation="Liste over Norges kommuner&#10;&#10;Kilde:&#10;&#10;* &quot;SSB. Kommuneinndeling 2017&quot;:http://www.ssb.no/klass/#!/klassifikasjoner/131&#10;* &quot;data.norge.no om kommuneinndeling&quot;:http://data.norge.no/data/statistisk-sentralbyr%C3%A5/kommuneinndeling&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_6a1338aee98381b56e" xmi:type="uml:Class" name="Valuta" scope="public">
+        <properties documentation="Valutakodene for offisielle valutaer.&#10;&#10;# Referanse&#10;I henhold til [ISO 4217](https://no.wikipedia.org/wiki/ISO_4217)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_eb61203622ad544bf4" xmi:type="uml:Package" name="komplekse-datatyper" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_78ce319f88daccd11d" xmi:type="uml:Class" name="Adresse" scope="public">
+        <properties documentation="Fysisk adresse eller postadresse.&#10;&#10;# Beskrivelse&#10;&#10;Dette kan enten være en postadresse eller en fysisk adresse som det er mulig å besøke.&#10;&#10;# Eksempel&#10;&#10;|               adresse               |    poststed    | postnummer | land |&#10;|-------------------------------------|----------------|------------|------|&#10;| Nydalen allé 11                     | Oslo           |       0484 | NO   |&#10;| Fakturamottak&amp;lt;br&amp;gt;Postboks 501 Lund  | Kristiansand   |       4605 | -    |&#10;| Postboks 517 Lundsiden              | KRISTIANSAND S |       4605 | -    |&#10;&#10;&#10;# Referanser&#10;&#10;- http://www.bring.no/radgivning/sende-noe/klargjoring/klargjoring-adressert/adressering-til-postmottakere-i-norge&#10;- http://www.bring.no/radgivning/sende-noe/klargjoring/klargjoring-adressert/adressering-til-mottakere-i-utlandet&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_206c8c638674ec3bdb" xmi:type="uml:Class" name="Identifikator" scope="public">
+        <properties documentation="Unik identifikasjon til et objekt.&#10;&#10;# Beskrivelse&#10;&#10;En kombinasjon av tegn eller og/eller bokstaver som unikt identifiserer et objekt blant andre objekter av samme type uten arv.&#10;&#10;Identifikatorer må være stabile over tid, og henvise til samme objekt.&#10;&#10;Dersom identifikatorer konstrueres av sammensatte verdier må særskilt hensyn tas for å sikre at identifikatorverdien ikke endres over tid.&#10;&#10;# Eksempel&#10;&#10;Kan for eksempel brukes til å identifisere en person ut fra fødselsnummer eller ansattnummer.&#10;&#10;* For en person kan det være fødselsnummer&#10;* For er personresurs kan det være ansattnummer eller signatur&#10;* For er elev kan det være elevnummer.&#10;* For organisasjonselement kan det være organisasjonsnummer fra Enhetsregistret.&#10;* systemId kan være objektID eller rowID i underliggende database, dersom denne er stabil over tid.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_5872ee626e715d9a7b" xmi:type="uml:Class" name="Kontaktinformasjon" scope="public">
+        <properties documentation="Informasjon som kan brukes for oppnå kontakt.&#10;&#10;# Beskrivelse&#10;&#10;Generell kontaktinformasjon, inneholder opplysninger om telefon, e-post, osv.&#10;&#10;En ikke-fysisk adresse, i motsetning til [Adresse](/docs/komplekse_datatyper_adresse) .&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_7cce602fb377f7ddd5" xmi:type="uml:Class" name="Matrikkelnummer" scope="public">
+        <properties documentation="Entydig identifisering av metrikkelenhet innen kommune, definert i matrikkelforskriften § 7.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_83b9b8ffafe6ae9613" xmi:type="uml:Class" name="Periode" scope="public">
+        <properties documentation="Tidsperiode (start- og sluttdato).&#10;&#10;# Beskrivelse&#10;&#10;Tidsperiode (start- og slutttidspunkt). &#10;Slutttidspunkt må være senere eller lik starttidspunktet om det er definert.&#10;Både start og slutt kan brukes som dato eller datotid.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_ad00a87051ab63464d" xmi:type="uml:Class" name="Personnavn" scope="public">
+        <properties documentation="Angir navn til en person&#10;&#10;# Beskrivelse&#10;&#10;Inneholder fornavn og etternavn for å beskrive navn til en person.&#10;&#10;Fornavn, mellomnavn og etternavn skal leveres fra fagsystemene som de er, uten noe endringer.&#10;&#10;# Referanse&#10;&#10;* [Navneloven](https://lovdata.no/dokument/NL/lov/2002-06-07-19/)&#10;* [Håndbok i folkeregistrering](http://www.skatteetaten.no/no/Radgiver/Rettskilder/Handboker/Handbok-i-folkeregistrering/)&#10;* [Skal du ha to etternavn?](http://www.skatteetaten.no/no/Person/Folkeregister/Endre-navn/Skal-du-ha-to-etternavn/)&#10;&#10;# Eksempler&#10;&#10;|            Navn           |       Fornavn       | Mellomnavn | Etternavn   |&#10;|---------------------------|---------------------|------------|--------------|&#10;| Ole Olsen                 | Ole                 | -          | Olsen        |&#10;| Lise Sofie Fuglevik Olsen | Lise Sofie          | Fuglevik   | Olsen        |&#10;| Lise Sofie Fuglevik Olsen | Lise Sofie Fuglevik | -          | Olsen        |&#10;| Anne Kari Nilsen-Olsen    | Anne Kari           | -          | Nilsen-Olsen |&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_2d6570a5e46e4a94b7" xmi:type="uml:Package" name="faktura" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_3db56ae321a82f08e3" xmi:type="uml:Class" name="Faktura" scope="public">
+        <properties documentation="Betalingskrav som er utformet og oversendt fra fakturautsteder til fakturamottaker. &#10;&#10;# Beskrivelse&#10;&#10;Faktura opprettes med basis i ett fakturagrunnlag og ustedes til en eller flere mottakere.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_4efc90c544ea9176b6" xmi:type="uml:Class" name="Fakturagrunnlag" scope="public">
+        <properties documentation="Grunnlag for fakturering.&#10;&#10;# Beskrivelse&#10;&#10;Dokumentasjon som danner grunnlag for å fakturere en kunde.&#10;&#10;Beskriver hvem som skal utstede faktura og dermed motta betaling, hvem som skal faktureres, og hvilke varer det skal faktureres for.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_1103ff5e5a68b6607e" xmi:type="uml:Class" name="Fakturalinje" scope="public">
+        <properties documentation="Del av Fakturagrunnlag som beskriver en enkelt vare.&#10;&#10;# Beskrivelse&#10;&#10;Inneholder referanse til vare i et vareregister.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_a5ef5c63edb8ac6593" xmi:type="uml:Class" name="Fakturamottaker" scope="public">
+        <properties documentation="Aktør som skal betale faktura. &#10;&#10;# Beskrivelse&#10;&#10;Mottaker er, per i dag, alltid en person.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_94d02945d6070f12cc" xmi:type="uml:Class" name="Fakturautsteder" scope="public">
+        <properties documentation="Enhet som utformer og oversender faktura og mottar betaling.&#10;&#10;# Beskrivelse&#10;&#10;Enhet som etter Regnskapsloven er pliktig å arkivere dokumentasjon for faktura.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_0a4a7adc5833276094" xmi:type="uml:Package" name="kodeverk" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_320372d9967f8e69e0" xmi:type="uml:Class" name="Merverdiavgift" scope="public">
+        <properties documentation="Kodeverk for merverdiavgifter.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_3b1d83d0f5836abcf0" xmi:type="uml:Class" name="Vare" scope="public">
+        <properties documentation="Vare eller tjeneste som kan leveres og faktureres.&#10;&#10;# Beskrivelse&#10;&#10;Varer leveres i en mengde beskrevet i en enhet, til en nettopris per enhet.  Til hver vare er det tilknyttet en kode som angir sats for merverdiavgift.&#10;&#10;Konteringen som varen har i økonomisystemet kan også angis.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_cb486c5e10e7549329" xmi:type="uml:Package" name="regnskap" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_cdb4a5f491db419a71" xmi:type="uml:Class" name="Bilag" scope="public">
+        <properties documentation="Dokumentasjon til en transaksjon.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_7b4f62b539811aac21" xmi:type="uml:Class" name="Leverandør" scope="public">
+        <properties documentation="Person eller virksomhet som leverer produkter eller tjenester.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_ee9a8c51509d702656" xmi:type="uml:Class" name="Leverandørgruppe" scope="public">
+        <properties documentation="Gruppering av leverandører.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_317862e268d1c77a72" xmi:type="uml:Class" name="Postering" scope="public">
+        <properties documentation="Føring på en konto i regnskapet.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_542aca320377efd62c" xmi:type="uml:Class" name="Transaksjon" scope="public">
+        <properties documentation="Overføring av penger til eller fra eksterne parter.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_fc190482d237184ba6" xmi:type="uml:Package" name="kodeverk" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_0969c491bcc5621d74" xmi:type="uml:Class" name="Behandlingsgrunnlag" scope="public">
+        <properties documentation="Rettslig grunnlag for behandling av personopplysninger.&#10;&#10;# Beskrivelse&#10;&#10;All behandling av personopplysninger må ha et rettslig grunnlag for å være lov. Det må finnes et behandlingsgrunnlag for behandling av hver enkelt personopplysning til hvert enkelt formål.&#10;&#10;Virksomheten har også plikt til å informere den enkelte om hvilket grunnlag  personopplysningene deres behandles på. &#10;&#10;# Eksempler&#10;&#10;* Samtykke&#10;* Nødvendig for å oppfylle en avtale&#10;* Nødvendig for å oppfylle en rettslig plikt&#10;* Nødvendig for å beskytte vitale interesser&#10;* Nødvendig for å utføre en oppgave i offentlig interesse eller utøve offentlig myndighet&#10;* Nødvendig for å ivareta legitime interesser - interesseavveiing&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_74d9df478c1e847526" xmi:type="uml:Class" name="Personopplysning" scope="public">
+        <properties documentation="Opplysninger og vurderinger som kan knyttes til enkeltpersoner.&#10;&#10;# Beskrivelse&#10;&#10;Typiske personopplysninger er navn, adresse, telefonnummer, e-post og fødselsnummer. Et bilde regnes som en personopplysning dersom personer kan gjenkjennes. &#10;&#10;# Referanser&#10;&#10;Personvernforordningen artikkel 4&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_dcd6eedb91c6d3bf9a" xmi:type="uml:Package" name="samtykke" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_66c2b6e15607ff4089" xmi:type="uml:Class" name="Behandling" scope="public">
+        <properties documentation="All bruk av personopplysninger&#10;&#10;# Beskrivelse&#10;&#10;All bruk av personopplysninger, slik som innsamling, registrering, sammenstilling, lagring og utlevering, eller en kombinasjon av slike bruksmåter.&#10;&#10;Personopplysninger skal bare brukes for spesifikke, uttrykkelige, angitte og legitime formål. Virksomheten har plikt til å gi den enkelte informasjon om formålet med behandling av personopplysning samt behandlingsgrunnlaget.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_a7dfa4fd7d021e7a14" xmi:type="uml:Class" name="Samtykke" scope="public">
+        <properties documentation="Tillatelse til behandling av personopplysning.&#10;&#10;# Beskrivelse&#10;&#10;En virksomhet kan behandle personopplysninger dersom den har innhentet gyldig samtykke fra personen eller personene det gjelder.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_43fb5b6972be090cbe" xmi:type="uml:Class" name="Tjeneste" scope="public">
+        <properties documentation="Tjeneste eller system som behandler personopplysninger. &#10;&#10;# Beskrivelse&#10;&#10;Tjeneste eller system som behandler personopplysninger må ha et behandlingsgrunnlag og formål for behandling av hver enkelt personopplysning.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_2971350fdff5fb67e3" xmi:type="uml:Package" name="datautstyr" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_67cb98c80c9c34af6e" xmi:type="uml:Class" name="DigitalEnhet" scope="public">
+        <properties documentation="Beskriver ulike digitale enheter slik som feks pc, nettbrett, mobil.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_0b73fe15acbf721900" xmi:type="uml:Class" name="Enhetsgruppe" scope="public">
+        <properties documentation="Angir en gruppering av ensartede digitale enheter. Feks klassesett med iPader eller datalab med ekstra kraftige maskiner.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_3607c54e6c064c5f16" xmi:type="uml:Class" name="Enhetsgruppemedlemskap" scope="public">
+        <properties documentation="Medlemskap i enhetsgrupper.&#10;&#10;Gruppemedlemskap som knytter sammen Digitalenhet og Enhetsgrupper.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_05dc95df6df0dc918a" xmi:type="uml:Package" name="eiendel" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_7cd0845ee874ae32ed" xmi:type="uml:Class" name="Applikasjon" scope="public">
+        <properties documentation="En applikasjon med tilhørende ressurser. &#10;&#10;En ressurs kan være en lisens eller en rolle som tilganger inne i en applikasjon. Applikasjonen kan være en desktopapplikasjon eller en skybasert tjeneste. Brukere kan da få tilgang til denne applikasjonen hvis vedkommende har fått tildelt en ressurs knyttet til applikasjonen.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_371262c73281b9cea0" xmi:type="uml:Class" name="Applikasjonsressurs" scope="public">
+        <properties documentation="Informasjon om hvor en applikasjon kan benyttes.&#10;&#10;En ressurs er knyttet til en avtale som beskriver antall lisenser, lisensmodell og hvem som kan benytte den.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_9b2fdb036ae0ebd770" xmi:type="uml:Class" name="Applikasjonsressurstilgjengelighet" scope="public">
+        <properties documentation="Hvilke organisasjonselementers brukere som har tilgang til en ressurs.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_68cbfe077cd61e1896" xmi:type="uml:Package" name="kodeverk" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_4fb088e36880452bac" xmi:type="uml:Class" name="Applikasjonskategori" scope="public">
+        <properties documentation="Kategorier av applikasjoner.&#10;&#10;Eksempel:&#10;&#10;* Pedagogisk programvare&#10;* Kontorstøtte&#10;* Fagsystemer&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_29165df7939d16358b" xmi:type="uml:Class" name="Brukertype" scope="public">
+        <properties documentation="De ulike brukertypene som kan benytte lisensen.&#10;&#10;Eksempler:&#10;&#10;* ELEV&#10;* ANSATTSKOLE&#10;* ANSATTADMINISTRASJON&#10;* EKSTERN&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_933d9a15b8dfa7dda9" xmi:type="uml:Class" name="Enhetstype" scope="public">
+        <properties documentation="Kategori som den digitale enheten hører til.&#10;&#10;Eksempler:&#10;&#10;* mobiltelefon&#10;* datamaskin&#10;* nettbrett&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_efd128dccde9c3b2cd" xmi:type="uml:Class" name="Håndhevingstype" scope="public">
+        <properties documentation="Hvordan ulike lisensmodeller kan håndheves av systemer for forvaltning av applikasjonen.&#10;&#10;Eksempel:&#10;&#10;* Hardstopp (ikke lov å tildele flere lisenser enn det kildesystemet angir)&#10;* Ubegrenset (ingen begrensing på antall lisenser som kan tildeles)&#10;* Overallokering tillatt (kan tildeles lisenser utover maks antall. Ikke nødvendigvis ubegrenset)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_9a72de7926f000558d" xmi:type="uml:Class" name="Lisensmodell" scope="public">
+        <properties documentation="Lisensmodeller som kan knyttes til en lisens.&#10;&#10;Eksempel:&#10;&#10;* site&#10;* user&#10;* device&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_8b893eeb511d3356f6" xmi:type="uml:Class" name="Plattform" scope="public">
+        <properties documentation="Plattformen tjenesten kan leveres på.&#10;&#10;Eksempel:&#10;&#10;* Windows&#10;* MAC OS&#10;* Linux&#10;* IOS&#10;* Android&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_72faa4fe7addf5142f" xmi:type="uml:Class" name="Produsent" scope="public">
+        <properties documentation="Navn på produsenten av den  digitale enheten.&#10;&#10;Eksempler:&#10;&#10;* HP&#10;* Lenovo&#10;* Apple&#10;* Samsung&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_a70500247bd824d6b4" xmi:type="uml:Class" name="Status" scope="public">
+        <properties documentation="Status på den digitale enheten i fagsystemet (feks ett asset management system):&#10;&#10;Eksempler:&#10;&#10;* i bruk&#10;* på lager&#10;* defekt&#10;* utgått&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_ed81a66e7ce9ac8e80" xmi:type="uml:Package" name="tilgang" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_d95be5e3909da6c25d" xmi:type="uml:Class" name="Identitet" scope="public">
+        <properties documentation="Identitet identifiserer innehaver av rettigheter i relasjonen til organisasjonen.&#10;&#10;Kilden for denne type informasjon vil typisk være identitetsforvaltningssystemet.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_a07d2896e096679fcb" xmi:type="uml:Class" name="Rettighet" scope="public">
+        <properties documentation="Navngir en rettighet. Hva rettigheten gir tilgang til er systemspesifikt.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_a0fb5253503092535a" xmi:type="uml:Package" name="basisklasser" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_4fc3b1712583fb4e21" xmi:type="uml:Class" name="Gruppe" scope="public">
+        <properties documentation="En generisk samling av elever og lærere&#10;&#10;# Beskrivelse &#10;&#10;Gruppe representeres som en spesialisering (se tabell nedenfor).&#10;&#10;Grupper knyttes til Utdanningsforhold via Gruppemedlemskap eller direkte relasjoner.&#10;&#10;En gruppe kan ha referanser til kodeverk fra Grep og VIGO. En gruppe kan ha perioder som angir når den er gyldig eller aktiv. Hvorvidt en gruppe har referanser og perioder avhenger av hvilken konkret klasse som benyttes.&#10;&#10;| Klasse | Kode | Periode |&#10;| ------- | ----- | ------ |&#10;| Basisgruppe | | X |&#10;| Kontaktlærergruppe | | X |&#10;| Utdanningsprogram | X | |&#10;| Programområde | X | |&#10;| Fag | X | |&#10;| Årstrinn | X | |&#10;| Eksamensgruppe | | X |&#10;| Undervisningsgruppe | | X |&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_66eb8f34f8d5b4bbcc" xmi:type="uml:Class" name="Gruppemedlemskap" scope="public">
+        <properties documentation="Deltagelse i en gruppe&#10;&#10;# Beskrivelse&#10;&#10;Knytter sammen et elevforhold og en gruppe (basisgruppe, kontaktlærergruppe, undervisningsgruppe, eksamensgruppe eller programområde). Gjør det mulig å uttrykke gyldighetsperiode for et medlemskap.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_930635f21c175d8912" xmi:type="uml:Class" name="Utdanningsforhold" scope="public">
+        <properties documentation="Et felles begrep for rollene til mennesker (elever, lærere, sensorer osv) som deltar i undervisning&#10;&#10;# Beskrivelse &#10;&#10;Abstrakt klasse som inneholder relasjoner og informasjon som brukes som elevforhold eller undervisningsforhold.&#10;&#10;# Eksempel&#10;&#10;* Lærer&#10;* Elev&#10;* Sensor&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_0fb75ae5dac6e5cbd2" xmi:type="uml:Package" name="elev" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_1ef82fb6b8a0e6ad4b" xmi:type="uml:Class" name="Basisgruppe" scope="public">
+        <properties documentation="Elevgruppe som definert i Opplæringslova §8-2. &#10;&#10;# Beskrivelse&#10;&#10;I opplæringa skal elevane delast i klassar eller basisgrupper som skal vareta deira behov for sosialt tilhør. For delar av opplæringa kan elevane delast i andre grupper etter behov. Til vanleg skal organiseringa ikkje skje etter fagleg nivå, kjønn eller etnisk tilhør. Klassane, basisgruppene og gruppene må ikkje vere større enn det som er pedagogisk og tryggleiksmessig forsvarleg.&#10;&#10;Klassen eller basisgruppa skal ha ein eller fleire lærarar (kontaktlærarar) som har særleg ansvar for dei praktiske, administrative og sosialpedagogiske gjeremåla som gjeld klassen eller basisgruppa og dei elevane som er der, mellom anna kontakten med heimen.&#10;&#10;Begrepet som har tildligere vært kjent som &quot;klasse&quot;.&#10;&#10;&quot;Vanlig&quot; gruppe i SATS (klassegruppe)&#10;&#10;Viser informasjon om:&#10;* År på VGS person går i&#10;* Programområdet&#10;* A, B eller C klasse&#10;&#10;Synonym:&#10;* Klasse&#10;&#10;Øvre grense er beskrevet i Opplæringslova §8-3 eller i forskrift.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_7d8b287dbc5ff7a302" xmi:type="uml:Class" name="Basisgruppemedlemskap" scope="public">
+        <properties documentation="Medlemskap i basisgrupper.&#10;&#10;# Beskrivelse&#10;&#10;Gruppemedlemskap som knytter sammen elevforhold og basisgrupper.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_bef9d1c3425d6ae290" xmi:type="uml:Class" name="Elev" scope="public">
+        <properties documentation="Informasjon om en person som mottar undervisning.&#10;&#10;# Beskrivelse &#10;&#10;Beskriver informasjon relatert til undervisning for en Person.&#10;&#10;Tilsvarende finnes for ansatte: __Personalressurs__.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_fb7e55db26e34ff4fb" xmi:type="uml:Class" name="Elevforhold" scope="public">
+        <properties documentation="Elevens forskjellige utdanningsforhold&#10;&#10;# Beskrivelse&#10;&#10;En Elev kan ha flere Elevforhold.&#10;&#10;# Eksempel&#10;&#10;En elev kan være i elevforhold med status privatist og deltid samtidig. Eller en elev kan ha flere elevforhold på flere forskjellige skoler.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_faa38bafca9a59bbdf" xmi:type="uml:Class" name="Elevtilrettelegging" scope="public">
+        <properties documentation="Tilrettelegging en elev har på eksamen.&#10;&#10;Det skal her oppgis enten fag eller eksamensform.&#10;&#10;# Referanse&#10;&#10;[Registrere tilretteleggingstype for eksamen](https://inschool.zendesk.com/hc/no/articles/360031198011-5a-02-Registrere-tilretteleggingstype-for-eksamen)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_34f73bfa53f7acbaaf" xmi:type="uml:Class" name="Kontaktlærergruppe" scope="public">
+        <properties documentation="Elevgruppe som ein kontaktlærer har særleg ansvar for.&#10;&#10;# Beskrivelse&#10;&#10;Kontaktlæreren har i denne gruppa særleg ansvar for dei praktiske, administrative og sosialpedagogiske gjeremåla som gjeld klassen eller basisgruppa og dei elevane som er der, mellom anna kontakten med heimen, jf Opplæringslova §8-2.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_de05695a7604d9cb58" xmi:type="uml:Class" name="Kontaktlærergruppemedlemskap" scope="public">
+        <properties documentation="Medlemskap i kontaktlærergrupper.&#10;&#10;# Beskrivelse&#10;&#10;Gruppemedlemskap som knytter sammen elevforhold og kontaktlærergrupper.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_e7134fb5267367b8c6" xmi:type="uml:Class" name="Medlemskap" scope="public">
+        <properties documentation="Måte å definere at en gitt elev eller lærer deltar i en gruppe. Informasjonen om fravær og elevens karakterer er definert ved hjelp av dette objektet.&#10;&#10;# Eksempler&#10;&#10;* Elevers medlemskap i Undervisningsgrupper&#10;* Lærerens medlemskap i Kontaktgruppe&#10;* Viser Elevens fravær fra en gitt undervisningsgruppe&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_abc96c9a4847305fc8" xmi:type="uml:Class" name="Persongruppe" scope="public">
+        <properties documentation="Gruppe av personer som ikke handler om undervisning. Dette kan f.eks. være grupper av elever som skal faktureres.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_a28716ad353105d8a6" xmi:type="uml:Class" name="Persongruppemedlemskap" scope="public">
+        <properties documentation="Medlemskap i persongruppe.&#10;&#10;# Beskrivelse&#10;&#10;Gruppemedlemskap som knytter sammen personer.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_12b52b83e93d03444b" xmi:type="uml:Class" name="Skoleressurs" scope="public">
+        <properties documentation="Ansatte på en skole.&#10;&#10;# Beskrivelse&#10;&#10;Kan være undervisningspersonell eller andre administrativt ansatte.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_99eaa8e23d0d751385" xmi:type="uml:Class" name="Undervisningsforhold" scope="public">
+        <properties documentation="Undervisningsforhold til alle med en pedagogisk funksjon&#10;&#10;# Beskrivelse &#10;&#10;Alle med en pedagogisk funksjon på skolen kan ha et undervisningsforhold.&#10;&#10;# Eksempel&#10;&#10;Dette kan for eksempel være lærerens undervisningsforhold til skolen. Underviser en lærer på to skoler, vil det være naturlig å ha to undervisningsforhold.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_d868239f1991606bf2" xmi:type="uml:Class" name="Varsel" scope="public">
+        <properties documentation="Varsel sendt til en elev.&#10;&#10;# Referanse&#10;&#10;* [VIS - Opprette og sende varsel ](https://inschool.zendesk.com/hc/no/articles/360030859132-4b-21-Opprette-og-sende-varsel)&#10;* [Forskrift til opplæringslova - &amp;#167; 3-8. Varsling](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_5-1#%C2%A73-8)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_0cd0eb61637cfb80f5" xmi:type="uml:Package" name="kodeverk" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_b9c1aa963761937993" xmi:type="uml:Class" name="Avbruddsårsak" scope="public">
+        <properties documentation="Årsaken til at eleven avbryter utdanningsprogrammet (Vg1)/programområdet (Vg2/Vg3) ) i løpet av skoleåret  eller lærlingen/lærekandidaten hever lærekontrakten/opplæringskontrakten.&#10;&#10;# Referanse&#10;&#10;Registreringshåndbok: https://regbok.udir.no/35004/3344/35042-1014313.html&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_8658f3805896e97939" xmi:type="uml:Class" name="Betalingsstatus" scope="public">
+        <properties documentation="Statuser for betaling av eksamen for privatister.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_903cd700c7d52081e3" xmi:type="uml:Class" name="Bevistype" scope="public">
+        <properties documentation="Viser hvilken bevistype eleven har fått på opplæringen.&#10;&#10;* KB - Kompetansebevis&#10;* VM - Vitnemål&#10;&#10;&#10;# Referanse&#10;[UDIR - Registreringshåndbok - B22](https://regbok.udir.no/oversikt)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_a829231277eacaee55" xmi:type="uml:Class" name="Brevtype" scope="public">
+        <properties documentation="Beskriver hvilken prøve lærlingen/lærekandidaten går opp til.&#10;* F - Fagbrev&#10;* S - Svennebrev&#10;* K - Kompetansebevis&#10;* B - Praksisbrev&#10;&#10;# Referanse&#10;[UDIR - Registreringshåndbok - C22](https://regbok.udir.no/oversikt)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_fc066aa0cc282cdb73" xmi:type="uml:Class" name="Eksamensform" scope="public">
+        <properties documentation="Eksamensordningens form.&#10;&#10;# Eksempler:&#10;* Muntlig&#10;* Skriftlig&#10;* Praktisk&#10;&#10;# Referanser&#10;&#10;* https://www.vigo.no/vigokv/ekstype.action&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_30bf0c6426867d48ae" xmi:type="uml:Class" name="Elevkategori" scope="public">
+        <properties documentation="Kategori som et elevforhold befinner seg innenfor&#10;&#10;# Eksempel&#10;&#10;Gyldige verdier kan være:&#10;* heltid&#10;* deltid&#10;* voksen&#10;* privatist&#10;* norsk-utv-i-utlandet&#10;* utenlandsk-utv-i-norge&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_1d103929f3ff8e2eb1" xmi:type="uml:Class" name="Fagmerknad" scope="public">
+        <properties documentation="Merknader til vitnemål og kompetansebevis&#10;&#10;# Beskrivelse&#10;&#10;En fagmerknad er en merknad som har en eller flere av disse funksjonene&#10;&#10;- gir opplysninger om faget som ikke går fram av karakterer eller eksamensform&#10;- utdyper opplysninger om karakterer og/eller eksamensform&#10;- henviser til vedlegg som gir slike opplysninger&#10;&#10;# Referanser&#10;&#10;[Merknader til vitnemål og kompetansebevis](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/3-merknader-til-vitnemal-og-kompetansebevis/)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_0426a2caff18e7c456" xmi:type="uml:Class" name="Fagstatus" scope="public">
+        <properties documentation="Elevens, privatistens eller kandidatens (voksne) status på et gitt fag.&#10;&#10;# Beskrivelse&#10;&#10;Fagstatus er en kode for undervisningen og/eller grunnlaget for karakteren. Den gir informasjon om hvordan det enkelte faget er gjennomført eller evt. ikke gjennomført.&#10;&#10;# Eksempler&#10;&#10;* E - Elev&#10;* F - Fritatt&#10;&#10;# Referanse&#10;&#10;[Registreringshåndbok]( https://regbok.udir.no/felt/?Id=1014315)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_b32c99523aaf0e669e" xmi:type="uml:Class" name="Fraværstype" scope="public">
+        <properties documentation="Typer fravær.&#10;&#10;# Referanse&#10;&#10;https://www.udir.no/regelverk-og-tilsyn/skole-og-opplaring/saksbehandling/fravar/fravar-i-videregaende/&#10;&#10;VIS:&#10;https://inschool.zendesk.com/hc/no/articles/360023264091&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_39a245938468db8060" xmi:type="uml:Class" name="Fullførtkode" scope="public">
+        <properties documentation="Gir status på hvordan eleven har gjennomført et programområde ved (det normale) skoleårs slutt.&#10;&#10;# Referanse&#10;[UDIR - Registreringshåndbok - B21](https://regbok.udir.no/oversikt)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_9d15f0a71b9a1b8ab3" xmi:type="uml:Class" name="Grepreferanse" scope="public">
+        <properties documentation="Ekstern referanse til Grepkodeverket.&#10;&#10;# Beskrivelse&#10;&#10;Grep er den nasjonale databasen for fag, læreplaner og opplæringstilbud i grunnopplæringen.&#10;&#10;Referanser til Grepkodeverket skal referere til gyldige og unike koder i REST (JSON) API fra Udir.&#10;&#10;https://www.udir.no/om-udir/data/kl06-grep&#10;&#10;Det er viktig å bruke Grepreferanser og ikke Vigoreferanser. &#10;Bruk data.udir.no , ikke psi.udir.no, eksempelvis https://data.udir.no/kl06/SAL3001 (korrekt), ikke https://psi.udir.no/kl06/SAL3001 (feil).&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_7069b1bc8f429fe2fa" xmi:type="uml:Class" name="Karakterskala" scope="public">
+        <properties documentation="Gruppering av karakterer etter skala (bokstav, orden osv). &#10;&#10;# Eksempler&#10;&#10;* Bokstav – bokstavkarakterer&#10;* Tall – tallkarakterer&#10;* Binær – Bestått/Ikke-bestått&#10;* Prosent – prosentpoeng.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_ffce359c16deca75f0" xmi:type="uml:Class" name="Karakterstatus" scope="public">
+        <properties documentation="Kode for karakterer som blir endret.&#10;&#10;# Referanse&#10;&#10;https://regbok.udir.no/35004/3344/35042-1015043.html&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_ba5f082cb72d1469db" xmi:type="uml:Class" name="OtEnhet" scope="public">
+        <properties documentation="Stedet hvor OT-ungdom er under oppfølging.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_80799262f6468dd773" xmi:type="uml:Class" name="OtStatus" scope="public">
+        <properties documentation="Statuskoder angir hva som er ungdommens hovedaktivitet&#10;&#10;# Eksempel&#10;&#10;* OTAR – I arbeid&#10;* OTMI – Er i militæret&#10;* OTAP – Arbeidspraksis eller annet tiltak i regi av NAV&#10;* OTUK – Ukjent aktivitet&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_8949a621970f0e1d0a" xmi:type="uml:Class" name="Prøvestatus" scope="public">
+        <properties documentation="Resultat av avlagt prøve - Praktisk prøve + teori.&#10;&#10;# Referanse&#10;[UDIR - Registreringshåndbok - C26](https://regbok.udir.no/oversikt)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_d375c3c299d217ebc4" xmi:type="uml:Class" name="Skoleeiertype" scope="public">
+        <properties documentation="Angir hvem er det som eier skole&#10;&#10;# Eksempler&#10;&#10;1 = Fylke&#10;2 = Stat&#10;3 = Kommune&#10;4 = Privat &#10;&#10;# Referanser&#10;&#10;* Vigo Kodeverkdatabase. Skole: [vigo.no/vigokv/skole.action](https://www.vigo.no/vigokv/skole.action)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_8989d609a50f626ce8" xmi:type="uml:Class" name="Skoleår" scope="public">
+        <properties documentation="Del av året da skoler har undervisning (og ikke ferie).&#10;&#10;# Beskrivelse&#10;&#10;Et skoleår varer som hovedregel fra august til juni.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_d3de3eca767951bff4" xmi:type="uml:Class" name="Termin" scope="public">
+        <properties documentation="Inndeling av skoleåret&#10;&#10;# Beskrivelse&#10;&#10;Et skoleår er som hovedregel inndelt i to terminer. Første termin: medio august til medio januar. Andre termin: medio januar til medio juni.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_66542bebfc2e3e2f6e" xmi:type="uml:Class" name="Tilrettelegging" scope="public">
+        <properties documentation="Tilrettelegging en elev kan ha på eksamen.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_35a63a87c59c6800f5" xmi:type="uml:Class" name="Varseltype" scope="public">
+        <properties documentation="Viser hvilken type et varsel er.&#10;&#10;# Eksempel&#10;&#10;* Fravær&#10;&#10;* Orden&#10;&#10;* Atferd&#10;&#10;* Manglende vurderingsgrunnlag i fag&#10;&#10;# Referanse&#10;&#10;* [VIS - Opprette og sende varsel ](https://inschool.zendesk.com/hc/no/articles/360030859132-4b-21-Opprette-og-sende-varsel)&#10;* [Forskrift til opplæringslova - &amp;#167; 3-8. Varsling](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_5-1#%C2%A73-8)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_1cb4ebfd17712d8ee1" xmi:type="uml:Class" name="Vigoreferanse" scope="public">
+        <properties documentation="Ekstern referanse til VIGO Kodeverksbase.&#10;&#10;# Beskrivelse&#10;&#10;Kodeverket kommer fra Grep (Utdanningsdirektoratet sin læreplandatabase), Nasjonalt skoleregister og VIGO.&#10;&#10;Referanser til VIGO Kodeverksbase skal referere til gyldige og unike koder i REST (JSON) API fra Vigo IKS/FINTLabs.&#10;&#10;https://api.felleskomponent.no/utdanning/vigo/kodeverk/swagger-ui.html#/&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_b21c38c8ae80084efb" xmi:type="uml:Class" name="Vitnemålsmerknad" scope="public">
+        <properties documentation="En vitnemålsmerknad har en eller flere av følgende funksjoner:&#10;&#10;* gir opplysninger som gjelder opplæringen generelt eller som gjelder hele vitnemålet/kompetansebeviset&#10;&#10;* henviser til vedlegg som gir slike opplysninger&#10;&#10;* utdyper en fagmerknad&#10;&#10;Det kan bare føres vitnemålsmerknader som er gitt av Utdanningsdirektoratet.&#10;&#10;# Referanser&#10;[UDIR : Merknader til vitnemål og kompetansebevis](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/3-merknader-til-vitnemal-og-kompetansebevis/)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_037f6da0bad36e43e2" xmi:type="uml:Package" name="larling" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_682b6c29fdf605980f" xmi:type="uml:Class" name="AvlagtPrøve" scope="public">
+        <properties documentation="Informasjon om en avlagt prøve for en person i et fag.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_8ae4302a9f2f1301ae" xmi:type="uml:Class" name="Lærling" scope="public">
+        <properties documentation="Å være lærling betyr at du utdanner deg til et yrke ved å jobbe i en bedrift.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_b7987f530c4141bb40" xmi:type="uml:Package" name="ot" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_66f46322ebc5f4862b" xmi:type="uml:Class" name="OtUngdom" scope="public">
+        <properties documentation="Oppfølgingstjenesten (OT) har ansvar for å følge opp ungdom med rett til videregående opplæring som ikke er i opplæring eller arbeid.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_a43d6b4e73f0e29caa" xmi:type="uml:Package" name="timeplan" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_9117fe80356ce4903b" xmi:type="uml:Class" name="Eksamen" scope="public">
+        <properties documentation="En eksamen som avholdes på en skole.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_4e85a14aafdbf54342" xmi:type="uml:Class" name="Fag" scope="public">
+        <properties documentation="Emneområde i utdanning i henhold til læreplanverket.&#10;&#10;# Beskrivelse&#10;&#10;Utdanning gjennomføres i form av fag. Fag i videregående utdanning har en fagtype og en fagkode. Begge er definert i VIGO og Grep kodeverk.  For føring på vitnemål kan kun fagkoder fastsatt av Utdanningsdirektoratet benyttes.&#10;&#10;Fag og fagkoder kan slås opp hos Utdanningsdirektoratet på https://www.udir.no/laring-og-trivsel/lareplanverket/finn-fagkode/&#10;&#10;Fagkoder er også beskrevet i [Registreringshåndboken A04](http://regbok.udir.no/35004/3344/35042-1014304.html).&#10;&#10;# Fagtyper&#10;&#10;Fag grupperes etter  [Rundskriv Udir-01-2017](https://www.udir.no/regelverk-og-tilsyn/finn-regelverk/etter-tema/Innhold-i-opplaringen/udir-01-2017/) og skriv fra Utdanningsdirektoratet om [Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet, pkt 2.5](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/2-oppsett-av-vitnemal-og-kompetansebevis/#2.5-rekkefolge-for-foring-av-fag-og-fagtyper).&#10;&#10;De aktuelle fagtypene i henhold til [Registreringshåndboken A05](http://regbok.udir.no/35004/3344/35042-1014305.html) er:&#10;&#10;- Fellesfag&#10;- Felles programfag&#10;- Valgfrie programfag&#10;- Uspesifiserte programfag&#10;- Yrkesfaglig fordypning&#10;- Individuell opplæringsplan&#10;&#10;# Referanser&#10;&#10;* https://www.udir.no/laring-og-trivsel/lareplanverket/&#10;* https://www.udir.no/utdanningslopet/videregaende-opplaring/&#10;* http://regbok.udir.no/&#10;* http://grepwiki.udir.no/&#10;* https://www.vigo.no/vigokv/index.action&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_f178abd58e55f19dbd" xmi:type="uml:Class" name="Faggruppe" scope="public">
+        <properties documentation="Gruppe av elever som mottar undervisning i samme fag.&#10;&#10;# Beskrivelse&#10;&#10;Undervisningsgrupper har vanligvis en kode, men denne er lokalt definert, og varierer fra skole til skole, og fra fylke til fylke.&#10;&#10;Denne grupperingen omhandler faglig organisering av undervisningen.&#10;&#10;Se også [Undervisningsgruppe](/docs/timeplan_undervisningsgruppe).&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_341c70c9bc645ab432" xmi:type="uml:Class" name="Faggruppemedlemskap" scope="public">
+        <properties documentation="Medlemskap i faggruppe.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_8139a518aff0f021ef" xmi:type="uml:Class" name="Rom" scope="public">
+        <properties documentation="Rom hvor timene gjennomføres.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_9e6627028a99bd9cc4" xmi:type="uml:Class" name="Time" scope="public">
+        <properties documentation="Timen når undervisning foregår.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_f9430c62086920a130" xmi:type="uml:Class" name="Undervisningsgruppe" scope="public">
+        <properties documentation="Gruppering av elever som mottar undervisning. &#10;&#10;# Beskrivelse&#10;&#10;Elever i forskjellige undervisningsgrupper kan ta samme faget.&#10;Flere fag kan undervises i samme undervisningsgruppe.&#10;Det kan være flere lærere i en undervisningsgruppe.&#10;&#10;Undervisningsgrupper har vanligvis en kode, men denne er lokalt definert, og varierer fra skole til skole, og fra fylke til fylke.&#10;&#10;Denne grupperingen omhandler administrering av undervisningen. &#10;&#10;Se også [Faggruppe](/docs/timeplan_faggruppe).&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_b23750d632def90e7f" xmi:type="uml:Class" name="Undervisningsgruppemedlemskap" scope="public">
+        <properties documentation="Medlemskap i undervisningsgrupper.&#10;&#10;# Beskrivelse&#10;&#10;Gruppemedlemskap som knytter sammen elevforhold og undervisningsgrupper.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_f71781f46bd749af00" xmi:type="uml:Package" name="utdanningsprogram" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_ab292f091391af4f0a" xmi:type="uml:Class" name="Programområde" scope="public">
+        <properties documentation="Programområde er et kurs i den videregående skolen. Et programområde strekker seg vanligvis over ett eller flere år og er gjerne en spesialisert retning eller område for fordypning innen utdanningsprogrammet.&#10;&#10;# Beskrivelse&#10;&#10;Innenfor utdanningsprogrammet studiespesialisering, er eksempler på programområder realfag, språk, samfunnsfag og økonomi og formgivingsfag.&#10;&#10;Innenfor utdanningsprogrammet naturbruk, finnes det for eksempel i andre klasse (Vg2) programområdene akvakultur, anleggsgartner og driftsoperatør idrettsanlegg, fiske og fangst, heste- og hovslagerfag, landbruk og gartneri, reindrift og skogbruk.&#10;&#10;Programområdekoder som slutter på  `----` angir at det er standardversjon av programområdet, og ikke en fylkeskommunal variant.&#10;&#10;# Eksempler&#10;&#10;* Anleggsmaskinførerf,PB&#10;* Asfaltfaget,PB&#10;* Banemontørfaget,PB&#10;* Betongfaget,PB&#10;* Bioenergi (D)&#10;* Byggdrifterfaget,PB&#10;* FDV-utdanning, 1 år (D)&#10;* Feierfaget,PB&#10;* Matrosfaget,PB&#10;* Modellbyggerfaget,PB&#10;* Motormannfaget,PB&#10;* Motormekanikerfaget,PB&#10;* Motorsykkelfaget,PB&#10;&#10;# Referanser&#10;&#10;* UDir Registreringshåndbok: [regbok.udir.no/35004/3344/35042-1014307.html](http://regbok.udir.no/35004/3344/35042-1014307.html)&#10;* Wikipedia: https://no.wikipedia.org/wiki/Programområde&#10;* Grepwiki: http://grepwiki.udir.no/index.php?title=Programområde&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_03c52ae93002471278" xmi:type="uml:Class" name="Programområdemedlemskap" scope="public">
+        <properties documentation="Medlemskap i programområder.&#10;&#10;# Beskrivelse&#10;&#10;Gruppemedlemskap som knytter sammen elevforhold og programområder.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_e9641bd142dcc0ad23" xmi:type="uml:Class" name="Skole" scope="public">
+        <properties documentation="Organisasjonsenhet som gjennomfører utdanning.&#10;&#10;# Beskrivelse&#10;&#10;Typisk er dette en videregående skole, men det kan også være eksamenskontor eller andre skolerelevante enheter.&#10;&#10;Inneholder utdanningsspesifikk informasjon om en organisasjonsenhet.&#10;&#10;# Eksempel&#10;&#10;- Videregående skole&#10;- SMI-skole&#10;- Fagskole&#10;- IB-skole&#10;- Eksamenskontor&#10;- Opplæringskontor&#10;- Ressurssenter&#10;- Fengselsundervisning&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_4e9e998773a94bd025" xmi:type="uml:Class" name="Utdanningsprogram" scope="public">
+        <properties documentation="Utdanningsløpene i videregående skole som fører fram til studie- og/eller yrkeskompetanse/fagbrev&#10;&#10;Synonym: Utdanningsgruppe&#10;&#10;# Eksempler&#10;&#10;* Bygg- og anleggsteknikk&#10;* Design og håndverk&#10;* Elektrofag&#10;* Helse- og oppvekstfag&#10;* Idrettsfag&#10;* Kunst, design og arkitektur&#10;* Medier og kommunikasjon&#10;* Musikk, dans og drama&#10;* Naturbruk&#10;* Restaurant- og matfag&#10;* Service og samferdsel&#10;* Studiespesialisering&#10;* Teknikk og ind. produksjon&#10;&#10;# Referanser&#10;&#10;*  Fag- og timefordeling og tilbudsstruktur for Kunnskapsløftet Udir-1-2017 : https://www.udir.no/regelverk-og-tilsyn/finn-regelverk/etter-tema/Innhold-i-opplaringen/udir-01-2017/&#10;* UDir Registreringshåndbok: http://regbok.udir.no/35004/3344/35042-1018606.html&#10;* Grepwiki: http://grepwiki.udir.no/index.php?title=Utdanningsprogram&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_9c225f8d277e78c2ba" xmi:type="uml:Class" name="Årstrinn" scope="public">
+        <properties documentation="Hvert år i grunnopplæringen (grunnskole og videregående skole) kalles et årstrinn.&#10;&#10;# Eksempler&#10;&#10;* Vg1&#10;* Vg2&#10;* Vg3&#10;* Vg4&#10;&#10;# Synonym&#10;&#10;* Nivå (Rogaland)&#10;* Klassetrinn&#10;* Trinn&#10;&#10;# Referanser&#10;&#10;* http://grepwiki.udir.no/index.php?title=Årstrinn&#10;* http://psi.udir.no/ontologi/kl06/aarstrinn&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_7d393bbf6a0753a549" xmi:type="uml:Package" name="vurdering" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_b718f596d9ccb555dd" xmi:type="uml:Class" name="Anmerkninger" scope="public">
+        <properties documentation="Aanmerkninger for en elev for et elevforhold.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_8c762b5ed963f2ebef" xmi:type="uml:Class" name="Eksamensgruppe" scope="public">
+        <properties documentation="Gruppering av elever som tar samme eksamen &#10;&#10;# Beskrivelse&#10;&#10;Underordnet til fag.&#10;&#10;Kan brukes for å:&#10;* Vise forhold mellom eksamensresultat og sensor&#10;* Vise gruppering av elever som tok eksamen sammen&#10;&#10;Det er også mulig å koble resultater av eksamener direkte på klasse `Fag`.&#10;&#10;Eksamensgrupper har en kode som er sentralt definert av VIGO.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_f39e2b7b2d58ba7390" xmi:type="uml:Class" name="Eksamensgruppemedlemskap" scope="public">
+        <properties documentation="Medlemskap i eksamensgrupper.&#10;&#10;# Beskrivelse&#10;&#10;Gruppemedlemskap som knytter sammen elevforhold og eksamensgrupper.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_4a317d33ba60fa9bfa" xmi:type="uml:Class" name="Eksamensvurdering" scope="public">
+        <properties documentation="Eksamensvurdering gis etter deltakelse på eksamen.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_7e518c8ed62a7e2509" xmi:type="uml:Class" name="Elevfravær" scope="public">
+        <properties documentation="Manglende tilstedeværelse i opplæringen.&#10;&#10;# Beskrivelse&#10;&#10;Fravær føres med relasjon til den undervisningen eleven har vært fraværende fra.&#10;&#10;# Fraværsgrense &#10;&#10;* Elever i videregående skole skal møte opp og delta aktivt i opplæringen. &#10;* Fravær skal registreres, og det foreligger grenser på hvor mye fravær som tillates før rett til å få halvårsvurdering med karakter eller standpunktkarakter i et fag bortfaller. &#10;* Eleven må legge fram relevant dokumentasjon for å få fravær unntatt fra fraværsgrensen.&#10;* Fraværsgrensen gjelder timefravær i enkeltfag, ikke elevenes totale fravær.&#10;* Eleven skal få et varsel om han eller hun står i fare for å ikke få karakter på grunn av fravær.&#10;&#10;# Fravær eksamen&#10;Det føres ikke lenger fravær på eksamen. Dette vil bli satt som karakter. Pga dette utgår relasjonen til eksamensgruppe. Ved en senere hovedoppdatering av Informasjonsmodellen vil multiplisitet for relasjonen  undervisningsgruppe bli satt til 1.&#10;&#10;# Referanser&#10;&#10;* UDir Registreringshåndbok: http://regbok.udir.no/35004/3344/35042-1018643.html&#10;* Forskrift til opplæringslova &amp;#167; 3-3, siste ledd: https://lovdata.no/forskrift/2006-06-23-724/&amp;#167;3-3&#10;* Forskrift til opplæringslova &amp;#167; 3-47: https://lovdata.no/forskrift/2006-06-23-724/&amp;#167;3-47&#10;* UDir. Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet, pkt 8: https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/8-fravar/&#10;* SNL. Fravær: https://snl.no/fravær&#10;* Rundskriv Udir-3-2016: https://www.udir.no/regelverk-og-tilsyn/finn-regelverk/etter-tema/Vitnemal/fravarsgrense---udir-3-2016/&#10;* UDir. Fravær i videregående skole: https://www.udir.no/regelverk-og-tilsyn/finn-regelverk/etter-tema/Vitnemal/fravar-i-videregaende-skole/&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_613b3bc81e8ddb77e2" xmi:type="uml:Class" name="Elevvurdering" scope="public">
+        <properties documentation="Vurderingsinformasjon for en elev.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_b357f11286ed15b176" xmi:type="uml:Class" name="Fagvurdering" scope="public">
+        <properties documentation="Karakterer og andre vurderingsuttrykk.&#10;&#10;# Beskrivelse&#10;&#10;Vurdering i fag skal ha relasjon til det faget det er foretatt vurdering i.&#10;&#10;# Referanser&#10;&#10;* UDir. Registreringshåndbok, Karakterer og andre vurderingsuttrykk: [regbok.udir.no/35004/3344/35042-1021153.html](http://regbok.udir.no/35004/3344/35042-1021153.html)&#10;* Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet 2017. Karakterer og andre vurderingsuttrykk: [https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/)&#10;* Forskrift til opplæringslova &amp;#167; 3-4: [https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_50372c3d2a86b1c767" xmi:type="uml:Class" name="Fravær" scope="public">
+        <properties documentation="Manglende tilstedeværelse i opplæringen.&#10;&#10;# Beskrivelse&#10;&#10;Fravær føres med relasjon til den undervisningen eleven har vært fraværende fra.  Det må derfor være en relasjon til en Undervisningsgruppe.&#10;&#10;# Fraværsgrense &#10;&#10;* Elever i videregående skole skal møte opp og delta aktivt i opplæringen. &#10;* Fravær skal registreres, og det foreligger grenser på hvor mye fravær som tillates før rett til å få halvårsvurdering med karakter eller standpunktkarakter i et fag bortfaller. &#10;* Eleven må legge fram relevant dokumentasjon for å få fravær unntatt fra fraværsgrensen.&#10;* Fraværsgrensen gjelder timefravær i enkeltfag, ikke elevenes totale fravær.&#10;* Eleven skal få et varsel om han eller hun står i fare for å ikke få karakter på grunn av fravær.&#10;&#10;# Fravær eksamen&#10;Det føres ikke lenger fravær på eksamen. Dette vil bli satt som karakter. Pga dette utgår relasjonen til eksamensgruppe. Ved en senere hovedoppdatering av Informasjonsmodellen vil multiplisitet for relasjonen  undervisningsgruppe bli satt til 1.&#10;&#10;# Referanser&#10;&#10;* UDir Registreringshåndbok: http://regbok.udir.no/35004/3344/35042-1018643.html&#10;* Forskrift til opplæringslova &amp;#167; 3-3, siste ledd: https://lovdata.no/forskrift/2006-06-23-724/&amp;#167;3-3&#10;* Forskrift til opplæringslova &amp;#167; 3-47: https://lovdata.no/forskrift/2006-06-23-724/&amp;#167;3-47&#10;* UDir. Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet, pkt 8: https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/8-fravar/&#10;* SNL. Fravær: https://snl.no/fravær&#10;* Rundskriv Udir-3-2016: https://www.udir.no/regelverk-og-tilsyn/finn-regelverk/etter-tema/Vitnemal/fravarsgrense---udir-3-2016/&#10;* UDir. Fravær i videregående skole: https://www.udir.no/regelverk-og-tilsyn/finn-regelverk/etter-tema/Vitnemal/fravar-i-videregaende-skole/&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_29093ee5e3914d2b8a" xmi:type="uml:Class" name="Fraværsoversikt" scope="public">
+        <properties documentation="Aggregert fraværsoversikt for en elev i ett fag.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_134d81729cd086e295" xmi:type="uml:Class" name="Fraværsprosent" scope="public">
+        <properties documentation="Fraværsdata for en periode.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_abfc31c0de38932b8d" xmi:type="uml:Class" name="Fraværsregistrering" scope="public">
+        <properties documentation="Manglende tilstedeværelse i opplæringen.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_fad664b85b545601e4" xmi:type="uml:Class" name="Halvårsfagvurdering" scope="public">
+        <properties documentation="Karakterer og andre vurderingsuttrykk.&#10;&#10;# Beskrivelse&#10;&#10;Halvårsvurdering gis for deltakelse av en elev i en gruppe.&#10;&#10;Vurdering i fag skal ha relasjon til den `Undervisningsgruppe` som vurderingen er foretatt i. Det er også mulig å sette relasjon direkte til angjeldende fag.&#10;&#10;# Referanser&#10;&#10;* UDir. Registreringshåndbok, Karakterer og andre vurderingsuttrykk: [regbok.udir.no/35004/3344/35042-1021153.html](http://regbok.udir.no/35004/3344/35042-1021153.html)&#10;* Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet 2017. Karakterer og andre vurderingsuttrykk: [https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/)&#10;* Forskrift til opplæringslova &amp;#167; 3-4: [https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_d19f634221bf6df9f2" xmi:type="uml:Class" name="Halvårsordensvurdering" scope="public">
+        <properties documentation="Halvårsvurdering av orden og atferd..&#10;&#10;# Beskrivelse&#10;&#10;Vurderinger av orden og atferd gjøres uten relasjon til noen gruppe, kun til et elevforhold.&#10;&#10;# Referanser&#10;&#10;* UDir. Registreringshåndbok, Karakterer og andre vurderingsuttrykk: [regbok.udir.no/35004/3344/35042-1021153.html](http://regbok.udir.no/35004/3344/35042-1021153.html)&#10;* Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet 2017. Karakterer og andre vurderingsuttrykk: [https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/)&#10;* Forskrift til opplæringslova &amp;#167; 3-4: [https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_63d562c31646707a19" xmi:type="uml:Class" name="Karakterhistorie" scope="public">
+        <properties documentation="Endringer på fastsatt karakter.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_293fa28c423c9b0c87" xmi:type="uml:Class" name="Karakterverdi" scope="public">
+        <properties documentation="Karakterer, målestokk for vurdering av elevers faglige standpunkt, prøve- eller eksamensprestasjoner&#10;&#10;# Beskrivelse&#10;&#10;De enkelte karakterer, som til sammen danner en karakterskala, blir betegnet med tall eller andre symboler.&#10;&#10;Den relaterte skalaen må refereres fra selve verdi.&#10;&#10;# Eksempel&#10;&#10;* 6 - Seks&#10;* IM - Ikke møtt&#10;* GK - Godkjent&#10;* R - Realkompetanse&#10;&#10;# Referanse&#10;&#10;* Vigo Kodeverkdatabase. Karakter: [vigo.no/vigokv/karakter.action](https://www.vigo.no/vigokv/karakter.action)&#10;* SNL. karakterer: [snl.no/karakterer](https://snl.no/karakterer)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_22226bec000dd63923" xmi:type="uml:Class" name="Ordensvurdering" scope="public">
+        <properties documentation="Vurdering av orden og atferd..&#10;&#10;# Beskrivelse&#10;&#10;Vurderinger av orden og atferd gjøres uten relasjon til noen gruppe, kun til et elevforhold.&#10;&#10;# Referanser&#10;&#10;* UDir. Registreringshåndbok, Karakterer og andre vurderingsuttrykk: [regbok.udir.no/35004/3344/35042-1021153.html](http://regbok.udir.no/35004/3344/35042-1021153.html)&#10;* Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet 2017. Karakterer og andre vurderingsuttrykk: [https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/)&#10;* Forskrift til opplæringslova &amp;#167; 3-4: [https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_8449538e4d4f38dc56" xmi:type="uml:Class" name="Sensor" scope="public">
+        <properties documentation="Skoleressurs som sensurerer eksamensbesvarelser.&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_62062a4daa3760bdbc" xmi:type="uml:Class" name="Sluttfagvurdering" scope="public">
+        <properties documentation="Karakterer og andre vurderingsuttrykk.&#10;&#10;# Beskrivelse&#10;&#10;Sluttvurdering (Standpunktkarakter) gis for deltakelse av en elev i en gruppe.&#10;&#10;Vurderingen skal ha en relasjon til det angjeldende faget.&#10;&#10;# Referanser&#10;&#10;* UDir. Registreringshåndbok, Karakterer og andre vurderingsuttrykk: [regbok.udir.no/35004/3344/35042-1021153.html](http://regbok.udir.no/35004/3344/35042-1021153.html)&#10;* Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet 2017. Karakterer og andre vurderingsuttrykk: [https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/)&#10;* Forskrift til opplæringslova &amp;#167; 3-4: [https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_d31cf9783ab57ed266" xmi:type="uml:Class" name="Sluttordensvurdering" scope="public">
+        <properties documentation="Sluttvurdering av orden og atferd..&#10;&#10;# Beskrivelse&#10;&#10;Vurderinger av orden og atferd gjøres uten relasjon til noen gruppe, kun til et elevforhold.&#10;&#10;# Referanser&#10;&#10;* UDir. Registreringshåndbok, Karakterer og andre vurderingsuttrykk: [regbok.udir.no/35004/3344/35042-1021153.html](http://regbok.udir.no/35004/3344/35042-1021153.html)&#10;* Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet 2017. Karakterer og andre vurderingsuttrykk: [https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/)&#10;* Forskrift til opplæringslova &amp;#167; 3-4: [https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_67ca12917562af8a7c" xmi:type="uml:Class" name="Underveisfagvurdering" scope="public">
+        <properties documentation="Karakterer og andre vurderingsuttrykk.&#10;&#10;# Beskrivelse&#10;&#10;Underveisvurdering gis for deltakelse av en elev i en gruppe.&#10;&#10;Vurdering i fag skal ha relasjon til den `Undervisningsgruppe` som vurderingen er foretatt i. Det er også mulig å sette relasjon direkte til angjeldende fag.&#10;&#10;# Referanser&#10;&#10;* UDir. Registreringshåndbok, Karakterer og andre vurderingsuttrykk: [regbok.udir.no/35004/3344/35042-1021153.html](http://regbok.udir.no/35004/3344/35042-1021153.html)&#10;* Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet 2017. Karakterer og andre vurderingsuttrykk: [https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/)&#10;* Forskrift til opplæringslova &amp;#167; 3-4: [https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_f983e629b323dc1f38" xmi:type="uml:Class" name="Underveisordensvurdering" scope="public">
+        <properties documentation="Underveisvurdering av orden og atferd..&#10;&#10;# Beskrivelse&#10;&#10;Vurderinger av orden og atferd gjøres uten relasjon til noen gruppe, kun til et elevforhold.&#10;&#10;# Referanser&#10;&#10;* UDir. Registreringshåndbok, Karakterer og andre vurderingsuttrykk: [regbok.udir.no/35004/3344/35042-1021153.html](http://regbok.udir.no/35004/3344/35042-1021153.html)&#10;* Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet 2017. Karakterer og andre vurderingsuttrykk: [https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/)&#10;* Forskrift til opplæringslova &amp;#167; 3-4: [https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_4c79dad81b64cf99a0" xmi:type="uml:Class" name="Vurdering" scope="public">
+        <properties documentation="Karakterer og andre vurderingsuttrykk.&#10;&#10;# Beskrivelse&#10;&#10;Vurdering gis for deltakelse av en elev i en gruppe. Dette kan være Halvårsvurdering, Standpunktkarakter, underveisvurdering eller annet. &#10;&#10;Vurdering i fag skal ha relasjon til den `Undervisningsgruppe` eller `Eksamensgruppe` som vurderingen er foretatt i. Det er også mulig å sette relasjon direkte til angjeldende fag.&#10;&#10;Vurderinger av orden og andre frittstående vurderinger gjøres uten relasjon til noen gruppe.&#10;&#10;# Referanser&#10;&#10;* UDir. Registreringshåndbok, Karakterer og andre vurderingsuttrykk: [regbok.udir.no/35004/3344/35042-1021153.html](http://regbok.udir.no/35004/3344/35042-1021153.html)&#10;* Føring av vitnemål og kompetansebevis for videregående opplæring i Kunnskapsløftet 2017. Karakterer og andre vurderingsuttrykk: [https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/](https://www.udir.no/eksamen-og-prover/dokumentasjon/vitnemal-og-kompetansebevis/foring-vitnemal-kompetansebevis-vgs/5-karakterer-og-andre-vurderingsuttrykk/)&#10;* Forskrift til opplæringslova &amp;#167; 3-4: [https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4](https://lovdata.no/dokument/SF/forskrift/2006-06-23-724/KAPITTEL_4-1#&amp;#167;3-4)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_PKG_28c293863ae71c6786" xmi:type="uml:Package" name="iso" scope="public">
+        <properties stereotype="ApplicationSchema" />
+        </element>
+      <element xmi:idref="EAID_CLS_90681d3984c7625b73" xmi:type="uml:Class" name="Kjønn" scope="public">
+        <properties documentation="Liste over verdier for kjønn basert på ISO/IEC 5218.&#10;&#10;# Beskrivelse&#10;&#10;Liste over verdier for kjønn basert på ISO/IEC 5218.&#10;&#10;Når vi i daglig tale prater om kjønn presiserer vi sjelden hva vi mener. Avhengig av sammenheng kan vi mene enten biologisk, sosialt, mentalt eller juridisk kjønn. Kjønn kan med andre ord betraktes som et samlebegrep.&#10;Kilde: llh.no  &#10;&#10;# Referanser&#10;&#10;* [FINT API for ISO/IEC 5218](https://api.felleskomponent.no/felles/kodeverk/kjonn)&#10;* [ISO/IEC 5218:2004](https://iso.org/standard/36266.html)&#10;* [Wikipedia artikkel](https://en.wikipedia.org/wiki/ISO/IEC_5218)&#10;&#10;# Eksempler&#10;&#10;    0 = uvisst (not known)&#10;    1 = mann (male)&#10;    2 = kvinne (female)&#10;    9 = gjelder ikke (not applicable)&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_ff7e29c23c8f7cf11d" xmi:type="uml:Class" name="Landkode" scope="public">
+        <properties documentation="Landskode i ISO 3166-1 alpha-2 format.&#10;&#10;# Beskrivelse&#10;&#10;Landskode i ISO 3166-1 alpha-2 format.&#10;&#10;# Referanser&#10;&#10;* [FINT api for ISO 3166-1 alpha-2](https://api.felleskomponent.no/felles/kodeverk/iso/31661alpha2/)&#10;* &quot;ISO standards page&quot;:http://www.iso.org/iso/country_codes.htm&#10;* Søk i kodeliste: &quot;https://www.iso.org/obp/ui/#search&quot;:https://www.iso.org/obp/ui/#search&#10;* &quot;XML data&quot;:http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements_xml-temp.htm&#10;* &quot;Wiki side&quot;:https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2&#10;* &quot;SSB datasett&quot;:http://data.norge.no/data/statistisk-sentralbyr%C3%A5/land-og-landkoder&#10;" stereotype="hovedklasse" />
+        </element>
+      <element xmi:idref="EAID_CLS_fcf272054f5b3393fc" xmi:type="uml:Class" name="Språk" scope="public">
+        <properties documentation="Liste over verdier for språk  (2 bokstav)&#10;&#10;# Beskrivelse&#10;&#10;Liste over alle språk etter ISO 639-1 standard (2 bokstav)&#10;&#10;# Eksempler&#10;&#10;NO, NB, NN, DA, etc.&#10;&#10;# Referanse &#10;&#10;[FINT api for ISO 639-1 Alpha2](https://api.felleskomponent.no/felles/kodeverk/iso/6391alpha2)&#10;" stereotype="hovedklasse" />
+        </element>
+      </elements>
+    </xmi:Extension>
   </xmi:XMI>
