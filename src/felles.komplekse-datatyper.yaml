@@ -1,0 +1,94 @@
+# yaml-language-server: $schema=https://w3id.org/linkml/meta.schema.json
+
+id: https://w3id.org/novari/fint/felles/komplekse-datatyper
+name: felles.komplekse-datatyper
+imports:
+  - linkml:types
+  - felles.iso
+
+classes:
+  
+  Adresse:
+    description: >-
+      Fysisk adresse eller postadresse.
+    attributes:
+      adresselinje:
+        range: string
+        multivalued: true
+        description: >-
+          Adresseinformasjon
+      postnummer:
+        range: string
+        description: >-
+          Postnummer
+      poststed:
+        range: string
+        description: >-
+          Poststed
+      land:
+        range: Landkode
+        description: >-
+          Land hvor adressen befinner seg.
+
+  Kontaktinformasjon:
+    description: >-
+      Informasjon som kan brukes for å oppnå kontakt.
+    attributes:
+      epostadresse:
+        range: string
+        description: >-
+          Epostadresse til en aktør
+      telefonnummer:
+        range: string
+        description: >-
+          Telefonnummer til en aktør
+      mobiltelefonnummer:
+        range: string
+        description: >-
+          Mobiltelefonnummer til en aktør
+      nettsted:
+        range: string
+        description: >-
+          Nettsted til en aktør
+      sip:
+        range: string
+        description: >-
+          SIP, protokoll for VoIP (IP-telefoni)
+    
+  Personnavn: 
+    description: >-
+      Navn på en person
+    attributes:
+      fornavn:
+        range: string
+        description: >-
+          Fornavn på en person
+      mellomnavn:
+        range: string
+        description: >-
+          Mellomnavn på en person
+      etternavn:
+        range: string
+        description: >-
+          Etternavn på en person
+    
+  Identifikator:
+    description: >-
+      Unik identifikasjon til et objekt.
+    attributes:
+      gyldighetsperiode:
+        range: Periode
+        description: >-
+          Periode for gyldigheten til identifikatoren
+      identifikatorverdi: 
+        range: string
+        description: >-
+          Verdi for identifikatoren
+          
+  Periode:
+    description: >-
+      Periode
+
+  Matrikkelnummer:
+    description: >-
+      Matrikkelnummer

@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://w3id.org/linkml/meta.schema.json
+
+id: https://w3id.org/novari/fint/felles
+name: felles
+imports:
+  - linkml:types
+  - felles.basisklasser
+  - felles.komplekse-datatyper
+
+classes:
+
+  Person:
+    description: >-
+      Fysiske private personer
+    is_a: Aktør
+    attributes:
+      fødselsnummer:
+        range: Identifikator
+        identifier: true
+        description: >-
+          Fødselsnummer eller en av de fiktive variantene
+      bilde:
+        range: string
+        description: >-
+          HTTP(S) lenke til et bilde av en person
+      bostedsadresse:
+        range: Adresse
+        description: >-
+          Folkeregistrert adresse til person
+      fødselsdato:
+        range: string
+        description: >-
+          Dato for fødsel
+      navn:
+        range: Personnavn
+        description: >-
+          Angir navn på en person
+
+  Virksomhet:
+    description: >-
+      Virksomhet
+
+  Kontaktperson:
+    description: >-
+      Kontaktperson

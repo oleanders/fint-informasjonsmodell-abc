@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://w3id.org/linkml/meta.schema.json
+
+id: https://w3id.org/novari/fint/felles/basisklasser
+name: felles.basisklasser
+imports:
+  - linkml:types
+  - felles
+
+classes: 
+  Aktør: 
+    abstract: true
+    description: >-
+      Person eller enhet vi samhandler med.
+    attributes:
+      kontaktinformasjon:
+        range: Kontaktinformasjon
+        description: >-
+          Den foretrukne måten å komme i kontakt med en aktør.
+      postadresse:
+        range: Adresse
+        description: >-
+          Informasjon om postadresse til en aktør
+
+  Enhet:
+    is_a: Aktør
+    description: >-
+      Alle hovedenheter, underenheter og organisasjonsledd som er identifisert med et organisasjonsnummer
+    attributes:
+      organisasjonsnummer:
+        range: Identifikator
+        description: >-
+          Organisasjonsnummer til en enhet
+      organisasjonsnavn:
+        range: string
+        description: >-
+          Organisasjonsnavn til en enhet
+      forretningsadresse:
+        range: Adresse
+        description: >-
+          Informasjon om forretningsadresse til en enhet
+
+  Begrep:  
+    abstract: true
+    description: >-
+      Begrep
+    attributes:
+      systemId:
+        range: Identifikator
+        description: >-
+          Systemidentifikator for begrepet
+      kode:
+        range: string
+        description: >-
+          Kode for begrepet
+      navn:
+        range: string
+        description: >-
+          Navn for begrepet
+      passiv:
+        range: boolean
+        description: >-
+          Angir at koden er passiv, og ikke kan velges.
+      gyldighetsperiode:
+        range: Periode
+        description: >-
+          Gyldighetsperiode for begrepet
+      

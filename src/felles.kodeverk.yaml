@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=https://w3id.org/linkml/meta.schema.json
+
+id: https://w3id.org/novari/fint/felles/kodeverk
+name: felles.kodeverk
+imports:
+  - linkml:types
+  - felles.basisklasser
+
+classes:
+
+  Valuta:
+    description: >-
+      Valuta
+    attributes:
+      bokstavkode:
+        range: Identifikator
+        required: true
+        description: >-
+          Bokstavkode for valuta
+      navn:
+        range: string
+        required: true
+        description: >-
+          Navn for valuta
+      nummerkode:
+        range: Identifikator
+        required: true
+        description: >-
+          Nummerkode for valuta
+  
+  Kommune:   
+    is_a: Begrep    
+    description: >-
+      Kommune
+    attributes:
+      fylke:
+        range: Fylke
+        deprecated: Her er det noe feil
+        description: >-
+          Fylke som kommunene hører i
+  
+  Fylke:
+    is_a: Begrep    
+    description: >-
+      Fylke
+    attributes:
+      kommune:
+        multivalued: true
+        range: Kommune
+        description: >-
+          Alle kommuner som inngår i fylke
+        
+
+      
