@@ -216,11 +216,10 @@ def indent(elem: ET.Element, level: int = 0) -> None:
         if level and (not elem.tail or not elem.tail.strip()):
             elem.tail = i
 
-
 def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass]]) -> ET.ElementTree:
     packages = build_package_hierarchy(classes)
 
-    # Map (package_path) -> xmi:id and (package_path, class_name) -> xmi:id
+    # Map (package_path) -> xmi:id og (package_path, class_name) -> xmi:id
     package_id_map: Dict[Tuple[str, ...], str] = {}
     class_id_map: Dict[Tuple[str, ...], str] = {}
 
@@ -231,43 +230,49 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
             key = pkg_path + (schema_class.name,)
             class_id_map[key] = make_id("CLS", "/".join(pkg_path), schema_class.name)
 
-    root = ET.Element(f"{{{XMI_NS}}}XMI", {
-        f"{{{XMI_NS}}}version": "2.1",
-    })
+    root = ET.Element(f"{{{XMI_NS}}}XMI", {f"{{{XMI_NS}}}version": "2.1"})
 
+    # Viktig: gi modellen xmi:type slik at TS-parseren setter Model-prototypen
     model = ET.SubElement(root, f"{{{UML_NS}}}Model", {
+        f"{{{XMI_NS}}}type": "uml:Model",
         f"{{{XMI_NS}}}id": make_id("MODEL", "FINT"),
         "name": "FINT",
     })
 
-    package_elements: Dict[Tuple[str, ...], ET.Element] = {(): model}
-    extension_el = ET.SubElement(root, f"{{{XMI_NS}}}Extension", {
+    # Global Extension-container på rotnivå (EN gang)
+    xmi_ext = ET.SubElement(root, f"{{{XMI_NS}}}Extension", {
         "extender": "Enterprise Architect",
         "extenderID": "6.5",
     })
-    extension_elements = ET.SubElement(extension_el, "elements")
+    ext_elements = ET.SubElement(xmi_ext, "elements")
+
+    package_elements: Dict[Tuple[str, ...], ET.Element] = {(): model}
 
     for pkg_path in sorted(packages.keys(), key=lambda p: (len(p), p)):
         parent_path = pkg_path[:-1]
         parent_element = package_elements.get(parent_path, model)
+
+        # Selve pakken i UML-delen
         pkg_element = ET.SubElement(parent_element, "packagedElement", {
             f"{{{XMI_NS}}}type": "uml:Package",
             f"{{{XMI_NS}}}id": package_id_map[pkg_path],
-            "name": pkg_path[-1],
+            "name": (pkg_path[-1] if pkg_path else "FINT"),
         })
+        # Valgfritt: behold properties på UML-noden
         ET.SubElement(pkg_element, "properties", {"stereotype": "ApplicationSchema"})
-        package_elements[pkg_path] = pkg_element
 
-        pkg_ext = ET.SubElement(extension_elements, "element", {
+        # Stereotype-kilde for TS-parseren: element-stubb i GLOBAL extension
+        pkg_ext = ET.SubElement(ext_elements, "element", {
             f"{{{XMI_NS}}}idref": package_id_map[pkg_path],
             f"{{{XMI_NS}}}type": "uml:Package",
             "name": pkg_path[-1],
             "scope": "public",
         })
-        ET.SubElement(pkg_ext, "properties", {
-            "stereotype": "ApplicationSchema",
-        })
+        ET.SubElement(pkg_ext, "properties", {"stereotype": "ApplicationSchema"})
 
+        package_elements[pkg_path] = pkg_element
+
+        # Klasser i pakken
         for schema_class in packages[pkg_path]["classes"]:
             class_key = pkg_path + (schema_class.name,)
             class_el = ET.SubElement(pkg_element, "packagedElement", {
@@ -278,6 +283,7 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
             if schema_class.abstract:
                 class_el.set("isAbstract", "true")
 
+            # Valgfritt: properties på UML-noden (dokumentasjon)
             props_attrs = {}
             doc_text = sanitize_attribute_text(schema_class.description)
             if doc_text:
@@ -286,6 +292,21 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
                 props_attrs["stereotype"] = schema_class.stereotypes[0]
             if props_attrs:
                 ET.SubElement(class_el, "properties", props_attrs)
+
+            # Stereotype-kilde for TS-parseren: element-stubb i GLOBAL extension
+            class_ext = ET.SubElement(ext_elements, "element", {
+                f"{{{XMI_NS}}}idref": class_id_map[class_key],
+                f"{{{XMI_NS}}}type": "uml:Class",
+                "name": schema_class.name,
+                "scope": "public",
+            })
+            class_props = {}
+            if doc_text:
+                class_props["documentation"] = doc_text
+            if schema_class.stereotypes:
+                class_props["stereotype"] = schema_class.stereotypes[0]
+            if class_props:
+                ET.SubElement(class_ext, "properties", class_props)
 
             if schema_class.description:
                 add_comment(class_el, schema_class.description, make_id("CMT", "/".join(class_key)))
@@ -302,6 +323,7 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
                             "general": super_id,
                         })
 
+            # Attributter
             for slot in schema_class.attributes:
                 attr_id = make_id("PRP", "/".join(class_key), slot.name)
                 attr_el = ET.SubElement(class_el, "ownedAttribute", {
@@ -335,22 +357,6 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
 
                 if slot.description:
                     add_comment(attr_el, slot.description, make_id("CMT", attr_id))
-
-            class_props = {}
-            class_doc = sanitize_attribute_text(schema_class.description)
-            if class_doc:
-                class_props["documentation"] = class_doc
-            if schema_class.stereotypes:
-                class_props["stereotype"] = schema_class.stereotypes[0]
-
-            class_ext = ET.SubElement(extension_elements, "element", {
-                f"{{{XMI_NS}}}idref": class_id_map[class_key],
-                f"{{{XMI_NS}}}type": "uml:Class",
-                "name": schema_class.name,
-                "scope": "public",
-            })
-            if class_props:
-                ET.SubElement(class_ext, "properties", class_props)
 
     indent(root)
     return ET.ElementTree(root)
