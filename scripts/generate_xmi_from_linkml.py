@@ -422,7 +422,7 @@ def main() -> None:
         raise SystemExit("No classes found in provided LinkML sources")
 
     tree = build_xmi(classes, name_index)
-    tree.write(args.out, encoding="utf-8", xml_declaration=True)
+    tree.write(args.out, encoding="windows-1252", xml_declaration=True)
     print(f"Wrote XMI to {args.out}")
 
 
