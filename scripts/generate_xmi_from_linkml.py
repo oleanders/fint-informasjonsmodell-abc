@@ -295,9 +295,6 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
             f"{{{XMI_NS}}}id": package_id_map[pkg_path],
             "name": schema_name,
         })
-        if apply_application_schema:
-            ET.SubElement(pkg_element, "properties", {"stereotype": "ApplicationSchema"})
-
         # Stereotype-kilde for TS-parseren: element-stubb i GLOBAL extension
         pkg_ext = ET.SubElement(ext_elements, "element", {
             f"{{{XMI_NS}}}idref": package_id_map[pkg_path],
@@ -306,8 +303,8 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
             "scope": "public",
         })
         ET.SubElement(pkg_ext, "tags")
-        #if apply_application_schema:
-        #    ET.SubElement(pkg_ext, "properties", {"stereotype": "ApplicationSchema"})
+        if apply_application_schema:
+            ET.SubElement(pkg_ext, "properties", {"stereotype": "ApplicationSchema"})
 
         package_elements[pkg_path] = pkg_element
 

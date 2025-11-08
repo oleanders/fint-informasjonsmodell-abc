@@ -4,7 +4,6 @@
     <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_68c2cc7f0ceaa3e499" name="Model">
       <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_58bd5b0e37fbcdd8ac" name="FINT">
         <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_87452f10731000f560" name="administrasjon">
-          <properties stereotype="ApplicationSchema" />
           <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_231fbd2cc7d6403ec0" name="fullmakt">
             <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_7448e1a279ec7a138b" name="Fullmakt">
               <properties documentation="Fullmakt til å gjøre handlinger i forhold til en gitt Rolle.&#10;&#10;# Beskrivelse&#10;&#10;Fullmakter innehas av fysiske eller juridiske personer, og er knyttet til kontodimensjon eller organisasjonselement. Fullmakter er delegert til personer, disse benevnes som fullmektige.&#10;&#10;Fullmektige kan ha stedfortreder. Stedfortrederen kan utøve den samme fullmakten som den fullmektige.&#10;&#10;Fullmakter beskrives i delegasjonsreglementet for organisasjonen. For fylkeskommuner er dette et reglement besluttet av Fylkestinget og videre delegert av Fylkesrådmannen.&#10;&#10;Dersom fullmakt har relasjon til mer enn en kontodimensjon (og organisasjonselement) er det å regne som en kombinasjonsfullmakt. &#10;&#10;# Eksempler&#10;&#10;Rektor ved Eidsvoll VGS har anvisningsfullmakt for ansvar 241.&#10;" stereotype="hovedklasse" />
@@ -2411,7 +2410,6 @@ Enhet er spesifisert av lønnsart.
             </packagedElement>
           </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_0ae92956e80722d32a" name="arkiv">
-          <properties stereotype="ApplicationSchema" />
           <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_5284d8b4387ebb8937" name="kodeverk">
             <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_a9ec71533d674a1f0c" name="DokumentStatus">
               <properties documentation="Kodeverk for status til et dokument.&#10;&#10;# Beskrivelse&#10;&#10;* Noark 5 versjon 5.0 metadatakatalog - nr. M054&#10;&#10;# Referanser&#10;&#10;* https://www.arkivverket.no/forvaltning-og-utvikling/noark-standarden/noark-5/noark5-standarden&#10;" stereotype="hovedklasse" />
@@ -5807,7 +5805,6 @@ Opplysninger i en personalmappe kan være personalia, arbeidskontrakt og annen k
             </packagedElement>
           </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_38f7bf53c51db64eb4" name="felles">
-          <properties stereotype="ApplicationSchema" />
           <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_f5cc7e74d95638309a" name="Kontaktperson">
             <properties documentation="Kontaktperson til en person.&#10;&#10;# Beskrivelse&#10;&#10;Kontaktperson er personer som kan kontaktes dersom det er behov for det.&#10;&#10;Kontaktperson kalles også pårørende.&#10;" stereotype="hovedklasse" />
             <ownedComment xmi:type="uml:Comment" xmi:id="EAID_CMT_7169e35666d2406bb6">
@@ -7044,7 +7041,6 @@ Ren tekst
             </packagedElement>
           </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_6167796250140b5466" name="okonomi">
-          <properties stereotype="ApplicationSchema" />
           <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_d126aa650fe717083f" name="faktura">
             <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_622215b9bf047ca9d2" name="Faktura">
               <properties documentation="Betalingskrav som er utformet og oversendt fra fakturautsteder til fakturamottaker. &#10;&#10;# Beskrivelse&#10;&#10;Faktura opprettes med basis i ett fakturagrunnlag og ustedes til en eller flere mottakere.&#10;" stereotype="hovedklasse" />
@@ -7877,7 +7873,6 @@ ISO 8601 format `YYYY-MM-DDThh:mm:ssZ`
             </packagedElement>
           </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_b51dbf691147b92836" name="personvern">
-          <properties stereotype="ApplicationSchema" />
           <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_f25478e3239844f1ca" name="kodeverk">
             <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_14d417a32baf64e200" name="Behandlingsgrunnlag">
               <properties documentation="Rettslig grunnlag for behandling av personopplysninger.&#10;&#10;# Beskrivelse&#10;&#10;All behandling av personopplysninger må ha et rettslig grunnlag for å være lov. Det må finnes et behandlingsgrunnlag for behandling av hver enkelt personopplysning til hvert enkelt formål.&#10;&#10;Virksomheten har også plikt til å informere den enkelte om hvilket grunnlag  personopplysningene deres behandles på. &#10;&#10;# Eksempler&#10;&#10;* Samtykke&#10;* Nødvendig for å oppfylle en avtale&#10;* Nødvendig for å oppfylle en rettslig plikt&#10;* Nødvendig for å beskytte vitale interesser&#10;* Nødvendig for å utføre en oppgave i offentlig interesse eller utøve offentlig myndighet&#10;* Nødvendig for å ivareta legitime interesser - interesseavveiing&#10;" stereotype="hovedklasse" />
@@ -8164,7 +8159,6 @@ ISO 8601 format `YYYY-MM-DDThh:mm:ssZ`
             </packagedElement>
           </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_a79bb65b39f7246e3f" name="ressurs">
-          <properties stereotype="ApplicationSchema" />
           <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_7edb421a6636ba1291" name="datautstyr">
             <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_c1d876328a29930a25" name="DigitalEnhet">
               <properties documentation="Beskriver ulike digitale enheter slik som feks pc, nettbrett, mobil.&#10;" stereotype="hovedklasse" />
@@ -8851,7 +8845,6 @@ Kilden for denne type informasjon vil typisk være identitetsforvaltningssysteme
             </packagedElement>
           </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_93ea470388b4d82056" name="utdanning">
-          <properties stereotype="ApplicationSchema" />
           <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_e292aace01a8566dda" name="basisklasser">
             <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_a62447c9dd60a973b1" name="Gruppe" isAbstract="true">
               <properties documentation="En generisk samling av elever og lærere&#10;&#10;# Beskrivelse &#10;&#10;Gruppe representeres som en spesialisering (se tabell nedenfor).&#10;&#10;Grupper knyttes til Utdanningsforhold via Gruppemedlemskap eller direkte relasjoner.&#10;&#10;En gruppe kan ha referanser til kodeverk fra Grep og VIGO. En gruppe kan ha perioder som angir når den er gyldig eller aktiv. Hvorvidt en gruppe har referanser og perioder avhenger av hvilken konkret klasse som benyttes.&#10;&#10;| Klasse | Kode | Periode |&#10;| ------- | ----- | ------ |&#10;| Basisgruppe | | X |&#10;| Kontaktlærergruppe | | X |&#10;| Utdanningsprogram | X | |&#10;| Programområde | X | |&#10;| Fag | X | |&#10;| Årstrinn | X | |&#10;| Eksamensgruppe | | X |&#10;| Undervisningsgruppe | | X |&#10;" stereotype="hovedklasse" />
@@ -13260,12 +13253,15 @@ Vurderinger som ikke er endelige, regnes som underveisvurderinger.
         </element>
       <element xmi:idref="EAID_PKG_87452f10731000f560" xmi:type="uml:Package" name="administrasjon" scope="public">
         <tags />
+        <properties stereotype="ApplicationSchema" />
         </element>
       <element xmi:idref="EAID_PKG_0ae92956e80722d32a" xmi:type="uml:Package" name="arkiv" scope="public">
         <tags />
+        <properties stereotype="ApplicationSchema" />
         </element>
       <element xmi:idref="EAID_PKG_38f7bf53c51db64eb4" xmi:type="uml:Package" name="felles" scope="public">
         <tags />
+        <properties stereotype="ApplicationSchema" />
         </element>
       <element xmi:idref="EAID_CLS_f5cc7e74d95638309a" xmi:type="uml:Class" name="Kontaktperson" scope="public">
         <tags />
@@ -13281,15 +13277,19 @@ Vurderinger som ikke er endelige, regnes som underveisvurderinger.
         </element>
       <element xmi:idref="EAID_PKG_6167796250140b5466" xmi:type="uml:Package" name="okonomi" scope="public">
         <tags />
+        <properties stereotype="ApplicationSchema" />
         </element>
       <element xmi:idref="EAID_PKG_b51dbf691147b92836" xmi:type="uml:Package" name="personvern" scope="public">
         <tags />
+        <properties stereotype="ApplicationSchema" />
         </element>
       <element xmi:idref="EAID_PKG_a79bb65b39f7246e3f" xmi:type="uml:Package" name="ressurs" scope="public">
         <tags />
+        <properties stereotype="ApplicationSchema" />
         </element>
       <element xmi:idref="EAID_PKG_93ea470388b4d82056" xmi:type="uml:Package" name="utdanning" scope="public">
         <tags />
+        <properties stereotype="ApplicationSchema" />
         </element>
       <element xmi:idref="EAID_PKG_231fbd2cc7d6403ec0" xmi:type="uml:Package" name="fullmakt" scope="public">
         <tags />
