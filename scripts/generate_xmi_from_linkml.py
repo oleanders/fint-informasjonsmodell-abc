@@ -220,6 +220,16 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
     packages = build_package_hierarchy(classes)
 
     base_prefix = ("Model", "FINT")
+    top_level_application_schemas = {name.casefold() for name in (
+        "fullmakt",
+        "arkiv",
+        "administrasjon",
+        "okonomi",
+        "ressurs",
+        "personvern",
+        "felles",
+        "utdanning",
+    )}
 
     def ensure_prefix_path(target: Dict[Tuple[str, ...], Dict[str, List[SchemaClass]]], path: Tuple[str, ...]) -> None:
         target.setdefault(path, {"classes": []})
@@ -265,27 +275,37 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
 
     package_elements: Dict[Tuple[str, ...], ET.Element] = {(): model}
 
+    def is_top_level_application_schema(path: Tuple[str, ...]) -> bool:
+        return (
+            len(path) == len(base_prefix) + 1
+            and path[: len(base_prefix)] == base_prefix
+            and path[-1].casefold() in top_level_application_schemas
+        )
+
     for pkg_path in sorted(packages.keys(), key=lambda p: (len(p), p)):
         parent_path = pkg_path[:-1]
         parent_element = package_elements.get(parent_path, model)
+        schema_name = pkg_path[-1] if pkg_path else "FINT"
+        apply_application_schema = is_top_level_application_schema(pkg_path)
 
         # Selve pakken i UML-delen
         pkg_element = ET.SubElement(parent_element, "packagedElement", {
             f"{{{XMI_NS}}}type": "uml:Package",
             f"{{{XMI_NS}}}id": package_id_map[pkg_path],
-            "name": (pkg_path[-1] if pkg_path else "FINT"),
+            "name": schema_name,
         })
-        # Valgfritt: behold properties på UML-noden
-        ET.SubElement(pkg_element, "properties", {"stereotype": "ApplicationSchema"})
+        if apply_application_schema:
+            ET.SubElement(pkg_element, "properties", {"stereotype": "ApplicationSchema"})
 
         # Stereotype-kilde for TS-parseren: element-stubb i GLOBAL extension
         pkg_ext = ET.SubElement(ext_elements, "element", {
             f"{{{XMI_NS}}}idref": package_id_map[pkg_path],
             f"{{{XMI_NS}}}type": "uml:Package",
-            "name": pkg_path[-1],
+            "name": schema_name,
             "scope": "public",
         })
-        ET.SubElement(pkg_ext, "properties", {"stereotype": "ApplicationSchema"})
+        #if apply_application_schema:
+        #    ET.SubElement(pkg_ext, "properties", {"stereotype": "ApplicationSchema"})
 
         package_elements[pkg_path] = pkg_element
 
