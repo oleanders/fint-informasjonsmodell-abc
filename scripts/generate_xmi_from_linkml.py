@@ -224,6 +224,7 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
         "fullmakt",
         "arkiv",
         "administrasjon",
+        "økonomi",
         "okonomi",
         "ressurs",
         "personvern",
@@ -304,6 +305,7 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
             "name": schema_name,
             "scope": "public",
         })
+        ET.SubElement(pkg_ext, "tags")
         #if apply_application_schema:
         #    ET.SubElement(pkg_ext, "properties", {"stereotype": "ApplicationSchema"})
 
@@ -337,6 +339,7 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
                 "name": schema_class.name,
                 "scope": "public",
             })
+            ET.SubElement(class_ext, "tags")
             class_props = {}
             if doc_text:
                 class_props["documentation"] = doc_text
