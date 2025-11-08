@@ -219,6 +219,23 @@ def indent(elem: ET.Element, level: int = 0) -> None:
 def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass]]) -> ET.ElementTree:
     packages = build_package_hierarchy(classes)
 
+    base_prefix = ("Model", "FINT")
+
+    def ensure_prefix_path(target: Dict[Tuple[str, ...], Dict[str, List[SchemaClass]]], path: Tuple[str, ...]) -> None:
+        target.setdefault(path, {"classes": []})
+
+    prefixed_packages: Dict[Tuple[str, ...], Dict[str, List[SchemaClass]]] = defaultdict(lambda: {"classes": []})
+    for depth in range(1, len(base_prefix) + 1):
+        ensure_prefix_path(prefixed_packages, base_prefix[:depth])
+
+    for pkg_path, data in packages.items():
+        new_path = base_prefix + pkg_path
+        prefixed_packages[new_path] = {"classes": data["classes"]}
+        for depth in range(1, len(new_path) + 1):
+            ensure_prefix_path(prefixed_packages, new_path[:depth])
+
+    packages = prefixed_packages
+
     # Map (package_path) -> xmi:id og (package_path, class_name) -> xmi:id
     package_id_map: Dict[Tuple[str, ...], str] = {}
     class_id_map: Dict[Tuple[str, ...], str] = {}
@@ -235,8 +252,8 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
     # Viktig: gi modellen xmi:type slik at TS-parseren setter Model-prototypen
     model = ET.SubElement(root, f"{{{UML_NS}}}Model", {
         f"{{{XMI_NS}}}type": "uml:Model",
-        f"{{{XMI_NS}}}id": make_id("MODEL", "FINT"),
-        "name": "FINT",
+        f"{{{XMI_NS}}}id": make_id("MODEL", "EA_Model"),
+        "name": "EA_Model",
     })
 
     # Global Extension-container på rotnivå (EN gang)
