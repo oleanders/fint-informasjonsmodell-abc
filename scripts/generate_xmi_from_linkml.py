@@ -345,6 +345,8 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
             if class_props:
                 ET.SubElement(class_ext, "properties", class_props)
 
+            class_attributes_ext = ET.SubElement(class_ext, "attributes")
+
             if schema_class.description:
                 add_comment(class_el, schema_class.description, make_id("CMT", "/".join(class_key)))
 
@@ -394,6 +396,12 @@ def build_xmi(classes: List[SchemaClass], name_index: Dict[str, List[SchemaClass
 
                 if slot.description:
                     add_comment(attr_el, slot.description, make_id("CMT", attr_id))
+
+                attr_ext = ET.SubElement(class_attributes_ext, "attribute", {
+                    f"{{{XMI_NS}}}idref": attr_id,
+                    "name": slot.name,
+                })
+                ET.SubElement(attr_ext, "tags")
 
     indent(root)
     return ET.ElementTree(root)
